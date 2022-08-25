@@ -7,71 +7,24 @@ import { onMounted } from 'vue';
 import * as echarts from 'echarts';
 import { useRouter } from 'vue-router';
 
-const router = useRouter();
+import server from '../server'
 
+const router = useRouter();
 onMounted(() => {
 type EChartsOption = echarts.EChartsOption
 
 let chartDom = document.getElementById('xxx')!;
 let myChart = echarts.init(chartDom);
 myChart.on('click', (params) => {
-  console.log(params.data);
-  console.log(params.name);
-  console.log(params.value)
-  router.push({path: '/articles', query: params.data});
+  let class_id = params.data.id;
+  let class_name = params.data.name;
+  router.push({path: '/articles', query: {id: class_id, name: class_name}});
 });
 var option: EChartsOption;
 
 myChart.showLoading();
 
-const data = {
-  id: 0,
-  name: 'Home',
-  description: 'home',
-  children: [
-    {
-      id: 1,
-      name: 'Data Structure & algorithm',
-      description: 'interesting'
-    },
-    {
-      id: 2,
-      name: 'Linux',
-      description: 'important',
-      children: [
-        { id: 21, name: 'DirtySprite', description: '1111' },
-        { id: 22, name: 'LineSprite', description: '2222' },
-        { id: 23, name: 'RectSprite', description: '3333' }
-      ]
-    },
-    {
-      id: 3,
-      name: 'Language',
-      description: 'base',
-      children: [
-        { id: 31, name: 'CC++', description: '4444' },
-        { id: 32, name: 'Java', description: '5555' },
-      ]
-    },
-    {
-      id: 4,
-      name: 'Network',
-      description: 'very interesting',
-      children: [{ name: 'switch', description: '6666' }]
-    },
-    {
-      id: 5,
-      name: 'Math',
-      description: 'elegent'
-    },
-    {
-      id: 6,
-      name: 'Computer Vision',
-      description: 'deriction'
-    }
-  ]
-};
-
+server.get('/api/classes').then((res) => {
 myChart.hideLoading();
 
 myChart.setOption(
@@ -86,7 +39,7 @@ myChart.setOption(
 
         name: 'tree1',
 
-        data: [data],
+        data: [res.data],
 
         top: '5%',
         left: '7%',
@@ -124,14 +77,13 @@ myChart.setOption(
 
         animationDuration: 550,
         animationDurationUpdate: 750
-      }
-    ]
-  })
-);
-
-option && myChart.setOption(option);
-
+          }
+        ]
+      })
+    );
+    option && myChart.setOption(option);
   });
+});
 </script>
 
 <style scoped>

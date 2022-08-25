@@ -8,7 +8,7 @@
     </div>
     <div class="digest">啊，忘了写摘要</div>
     <div class="statistic">
-      {{ article.time.toDateString() }} 
+      {{ article.time }} 
       <span style="float:right;">阅读 (1) | 评论 (1) | 点赞 (1)</span>
     </div>
   </div>
@@ -19,11 +19,6 @@ class TagInfo {
   public id: number;
   public name: string;
   public description: string;
-  constructor(id: number, name: string, description: string) {
-    this.id = id;
-    this.name = name;
-    this.description = description;
-  }
 }
 
 class ArticleInfo {
@@ -31,26 +26,18 @@ class ArticleInfo {
   public name: string;
   public description: string;
   public tags: Array<TagInfo>;
-  public time: Date;
-  constructor(id: number, name: string, description: string, tags: Array<TagInfo>) {
-    this.id = id;
-    this.name = name;
-    this.description = description;
-    this.tags = tags;
-    this.time = new Date();
-  }
-}
-let tags = Array<TagInfo>();
-for(let i = 0; i < 5; ++i) {
-  let tag = new TagInfo(i, "标签" + i, "标签" + i);
-  tags.push(tag);
+  public time: string;
 }
 
-let articles = Array<ArticleInfo>();
-for(let i = 0; i < 10; ++i) {
-  let article = new ArticleInfo(i, "须知少时凌云志，曾许人间第一流: " + i, "test", tags);
-  articles.push(article);
-}
+import { ref } from 'vue'
+let articles = ref(Array<ArticleInfo>());
+
+import server from '../../server';
+
+server.get('/api/articles').then((res) => {
+  articles.value = res.data;  
+});
+
 </script>
 
 <style scoped>

@@ -1,26 +1,34 @@
 <template>
-  <div v-html="to_html"></div>
+  <div v-html="article.content"></div>
 </template>
 
 <script setup lang="ts">
 import MarkdownIt from 'markdown-it'
 
 import { ref, computed } from 'vue'
-let md = new MarkdownIt();
-let markdown = ref(`
-  # Hello World
-  - 1
-  - 2
-  > 3333
 
+class Article {
+  public id: number;
+  public name: string;
+  public description: string;
+  public content: string;
+}
 
-## params
-`
-);
-let to_html = computed(() => {
-     return md.render(markdown.value);
- }); 
- 
+let md = new MarkdownIt({
+  breaks: true,
+  html: true,
+  linkify: true,
+  typographer: true
+});
+let article = ref(new Article());
+
+import server from '../../server'
+
+server.get('/api/article').then((res) => {
+  article.value = res.data;
+  article.value.content = md.render(article.value.content);
+  console.log(article.value)
+});
 
 </script>
 
