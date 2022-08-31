@@ -4,7 +4,7 @@
       <Header></Header>
     </el-header>
     <el-main class="main">
-      <Articles></Articles>
+      <Articles :articles="cls.articles"></Articles>
     </el-main>
     <el-footer class="footer">
       <div>{{$route.query.name}}</div>
@@ -15,9 +15,17 @@
 </template>
 
 <script setup lang="ts">
+import axios from "axios"
+import { ref } from "vue"
 import Header from "../components/header.vue"
 import Footer from "../components/footer.vue"
 import Articles from "../components/articles.vue"
+import ClassArticles from "../entity/ClassArticles";
+
+let cls = ref(new ClassArticles())
+axios.get("./data/carticles.json").then((res) => {
+  cls.value = res.data;
+});
 
 </script>
 <style scoped>

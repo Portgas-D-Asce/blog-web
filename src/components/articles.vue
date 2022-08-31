@@ -1,42 +1,27 @@
 <template>
   <div v-for="article in articles" class="abstract">
-    <router-link :to="{ path: '/article', query: { id: article.id, name: article.name }}" class="title"> {{ article.name }} </router-link>
+    <router-link :to="{ path: '/article', query: { id: article.id }}" class="title"> {{ article.name }} </router-link>
     <div class="tags">
       <router-link v-for="tag in article.tags" to="/tags">
         <el-tag class="ml-2" type="success"> {{ tag.name }} </el-tag>
       </router-link>
     </div>
-    <div class="digest">啊，忘了写摘要</div>
+    <div class="digest"> {{ article.description }}</div>
     <div class="statistic">
       {{ article.time }} 
-      <span style="float:right;">阅读 (1) | 评论 (1) | 点赞 (1)</span>
+      <span style="float:right;">阅读 ({{ article.readed }}) | 评论 ({{ article.commoned }}) | 点赞 ({{ article.upvoted }})</span>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
-import { get_articles } from '../api'
-class TagInfo {
-  public id: number;
-  public name: string;
-  public description: string;
+import ArticleInfo from '../entity/ArticleInfo';
+
+type Props = {
+  articles: Array<ArticleInfo>
 }
 
-
-class ArticleInfo {
-  public id: number;
-  public name: string;
-  public description: string;
-  public tags: Array<TagInfo>;
-  public time: string;
-}
-
-let articles = ref(Array<ArticleInfo>());
-get_articles().then((res) => {
-  articles.value = res.data;  
-});
-
+defineProps<Props>();
 </script>
 
 <style scoped>

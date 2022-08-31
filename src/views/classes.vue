@@ -7,6 +7,9 @@ import { onMounted } from 'vue';
 import * as echarts from 'echarts';
 import { useRouter } from 'vue-router';
 import { get_classes } from '../api'
+import axios from "axios"
+import { ref } from 'vue';
+import Class from '../entity/Class';
 
 const router = useRouter();
 onMounted(() => {
@@ -21,12 +24,13 @@ myChart.on('click', (params) => {
 });
 var option: EChartsOption;
 
+
 myChart.showLoading();
 
-get_classes().then((res) => {
-  console.log(res);
+axios.get("./data/classes.json").then((res) => {
 myChart.hideLoading();
 
+console.log(res.data)
 myChart.setOption(
   (option = {
     tooltip: {
