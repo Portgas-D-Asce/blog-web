@@ -17,7 +17,7 @@
 <script setup lang="ts">
 import Header from "../components/header.vue"
 import Footer from "../components/footer.vue"
-import Articles from "../components/articles/articles.vue"
+import Articles from "../components/articles.vue"
 
 </script>
 <style scoped>

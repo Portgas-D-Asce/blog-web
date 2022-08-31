@@ -6,8 +6,7 @@
 import { onMounted } from 'vue';
 import * as echarts from 'echarts';
 import { useRouter } from 'vue-router';
-
-import server from '../server'
+import { get_classes } from '../api'
 
 const router = useRouter();
 onMounted(() => {
@@ -24,7 +23,8 @@ var option: EChartsOption;
 
 myChart.showLoading();
 
-server.get('/api/classes').then((res) => {
+get_classes().then((res) => {
+  console.log(res);
 myChart.hideLoading();
 
 myChart.setOption(

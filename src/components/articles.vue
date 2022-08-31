@@ -15,11 +15,14 @@
 </template>
 
 <script setup lang="ts">
+import { ref } from 'vue'
+import { get_articles } from '../api'
 class TagInfo {
   public id: number;
   public name: string;
   public description: string;
 }
+
 
 class ArticleInfo {
   public id: number;
@@ -29,12 +32,8 @@ class ArticleInfo {
   public time: string;
 }
 
-import { ref } from 'vue'
 let articles = ref(Array<ArticleInfo>());
-
-import server from '../../server';
-
-server.get('/api/articles').then((res) => {
+get_articles().then((res) => {
   articles.value = res.data;  
 });
 

@@ -4,8 +4,8 @@
 
 <script setup lang="ts">
 import MarkdownIt from 'markdown-it'
-
 import { ref, computed } from 'vue'
+import { get_article } from "../api"
 
 class Article {
   public id: number;
@@ -22,9 +22,7 @@ let md = new MarkdownIt({
 });
 let article = ref(new Article());
 
-import server from '../../server'
-
-server.get('/api/article').then((res) => {
+get_article().then((res) => {
   article.value = res.data;
   article.value.content = md.render(article.value.content);
   console.log(article.value)

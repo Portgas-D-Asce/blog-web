@@ -12,7 +12,6 @@
         <Music></Music>
       </el-aside>
     </el-container>
-    <PreNext></PreNext>
     <el-footer class="footer">
       <Footer></Footer>
     </el-footer> 
@@ -21,10 +20,9 @@
 
 <script setup lang="ts">
 import Header from "../components/header.vue"
-import Copyright from "../components/article/copyright.vue"
-import Article from "../components/article/article.vue"
-import Music from '../components/article/music.vue'
-import PreNext from '../components/article/pre-next.vue'
+import Copyright from "../components/copyright.vue"
+import Article from "../components/article.vue"
+import Music from '../components/music.vue'
 import Footer from "../components/footer.vue"
 </script>
 
