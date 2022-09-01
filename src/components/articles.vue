@@ -15,10 +15,10 @@
 </template>
 
 <script setup lang="ts">
-import ArticleInfo from '../entity/ArticleInfo';
+import { Abstract } from '../entity/Article';
 
 type Props = {
-  articles: Array<ArticleInfo>
+  articles: Array<Abstract>
 }
 
 defineProps<Props>();

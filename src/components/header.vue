@@ -1,10 +1,20 @@
 <template>
-  <div class="title">毁灭吧，这操蛋的世界。</div>
+  <div>
+
+  <div class="title"> {{ header.name }} </div>
   <div class="introduce">
-    这货还没有介绍
+    {{ header.description }}
   </div> 
+  </div>
 </template>
 <script setup lang="ts">
+import Base from '../entity/Base';
+
+type Props = {
+  header: Base;
+}
+
+defineProps<Props>()
 </script>
 <style scoped>
 .title {

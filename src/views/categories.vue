@@ -8,8 +8,7 @@ import * as echarts from 'echarts';
 import { useRouter } from 'vue-router';
 import { get_classes } from '../api'
 import axios from "axios"
-import { ref } from 'vue';
-import Class from '../entity/Class';
+import Base from "../entity/Base"
 
 const router = useRouter();
 onMounted(() => {
@@ -18,16 +17,14 @@ type EChartsOption = echarts.EChartsOption
 let chartDom = document.getElementById('xxx')!;
 let myChart = echarts.init(chartDom);
 myChart.on('click', (params) => {
-  let class_id = params.data.id;
-  let class_name = params.data.name;
-  router.push({path: '/articles', query: {id: class_id, name: class_name}});
+  router.push({path: '/articles', query: {id: params.dataIndex}});
 });
 var option: EChartsOption;
 
 
 myChart.showLoading();
 
-axios.get("./data/classes.json").then((res) => {
+axios.get("./data/categories.json").then((res) => {
 myChart.hideLoading();
 
 console.log(res.data)

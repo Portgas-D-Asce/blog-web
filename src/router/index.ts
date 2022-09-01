@@ -12,8 +12,8 @@ let router = createRouter({
       component: () => import('../views/home.vue')
     },
     {
-      path: '/classes',
-      component: () => import('../views/classes.vue')
+      path: '/categories',
+      component: () => import('../views/categories.vue')
     },
     {
       path: '/tags',

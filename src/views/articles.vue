@@ -1,10 +1,10 @@
 <template>
   <el-container>
     <el-header class="header">
-      <Header></Header>
+      <Header :header="header ? header : null"></Header>
     </el-header>
     <el-main class="main">
-      <Articles :articles="cls.articles"></Articles>
+      <ArticlesComp :articles="cls.abstracts ? cls.abstracts : []"></ArticlesComp>
     </el-main>
     <el-footer class="footer">
       <div>{{$route.query.name}}</div>
@@ -15,16 +15,22 @@
 </template>
 
 <script setup lang="ts">
-import axios from "axios"
 import { ref } from "vue"
+import axios from "axios"
+
 import Header from "../components/header.vue"
 import Footer from "../components/footer.vue"
-import Articles from "../components/articles.vue"
-import ClassArticles from "../entity/ClassArticles";
+import ArticlesComp from "../components/articles.vue"
 
-let cls = ref(new ClassArticles())
-axios.get("./data/carticles.json").then((res) => {
+import { Articles }from "../entity/Article";
+import Base from "../entity/Base"
+
+let cls = ref(new Articles());
+let header = ref(new Base())
+axios.get("./data/articles.json").then((res) => {
   cls.value = res.data;
+  header.value.set_name(res.data.name);
+  header.value.set_description(res.data.description);
 });
 
 </script>

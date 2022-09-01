@@ -1,12 +1,12 @@
 <template>
   <el-container>
     <el-header class="header">
-      <Header></Header>
+      <Header :header="header ? header : null"></Header>
     </el-header>
     <el-container class="main">
       <el-main>
         <Copyright></Copyright>
-        <Article :article="article.content"></Article>
+        <ArticleComp :article="article.content ? article.content : ''"></ArticleComp>
       </el-main> 
       <el-aside>
         <Music></Music>
@@ -19,15 +19,18 @@
 </template>
 
 <script setup lang="ts">
-import axios from "axios"
 import { ref } from "vue"
+import axios from "axios"
+import MarkdownIt from 'markdown-it'
+
 import Header from "../components/header.vue"
 import Copyright from "../components/copyright.vue"
-import Article from "../components/article.vue"
+import ArticleComp from "../components/article.vue"
 import Music from '../components/music.vue'
 import Footer from "../components/footer.vue"
-import ArticleX from "../entity/Article"
-import MarkdownIt from 'markdown-it'
+
+import { Article } from "../entity/Article"
+import Base from "../entity/Base"
 
 
 let md = new MarkdownIt({
@@ -37,11 +40,13 @@ let md = new MarkdownIt({
   typographer: true
 });
 
-let article = ref(new ArticleX());
-
+let article = ref(new Article());
+let header = ref(new Base())
 axios.get("./data/article.json").then((res) => {
   res.data.content = md.render(res.data.content);
   article.value = res.data;
+  header.value.set_name(res.data.name);
+  header.value.set_description(res.data.description);
 });
 
 </script>
