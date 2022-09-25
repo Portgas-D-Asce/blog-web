@@ -6,7 +6,7 @@
     <el-container class="main">
       <el-main>
         <Copyright></Copyright>
-        <ArticleComp :article="article.content ? article.content : ''"></ArticleComp>
+        <ArticleComp :content="content ? content : ''"></ArticleComp>
       </el-main> 
       <el-aside>
         <Music></Music>
@@ -20,7 +20,7 @@
 
 <script setup lang="ts">
 import { ref } from "vue"
-import axios from "axios"
+import { useRoute } from "vue-router"
 import MarkdownIt from 'markdown-it'
 
 import Header from "../components/header.vue"
@@ -29,9 +29,16 @@ import ArticleComp from "../components/article.vue"
 import Music from '../components/music.vue'
 import Footer from "../components/footer.vue"
 
-import { Article } from "../entity/Article"
 import Base from "../entity/Base"
+import { get_article, get_article_content } from "../api"
 
+
+const route = useRoute();
+
+let header = ref(new Base());
+get_article({id: route.query.id}).then((res) => {
+  header.value = res.data;
+});
 
 let md = new MarkdownIt({
   breaks: true,
@@ -39,16 +46,10 @@ let md = new MarkdownIt({
   linkify: true,
   typographer: true
 });
-
-let article = ref(new Article());
-let header = ref(new Base())
-axios.get("./data/article.json").then((res) => {
-  res.data.content = md.render(res.data.content);
-  article.value = res.data;
-  header.value.set_name(res.data.name);
-  header.value.set_description(res.data.description);
+let content = ref("");
+get_article_content({id: route.query.id}).then((res) => {
+  content.value = md.render(res.data);
 });
-
 </script>
 
 <style scoped>

@@ -8,8 +8,8 @@
     </div>
     <div class="digest"> {{ article.description }}</div>
     <div class="statistic">
-      {{ article.time }} 
-      <span style="float:right;">阅读 ({{ article.readed }}) | 评论 ({{ article.commoned }}) | 点赞 ({{ article.upvoted }})</span>
+      {{ article.date }} 
+      <span style="float:right;">阅读 ({{ article.read }}) | 拉胯 ({{ article.downvoted }}) | 点赞 ({{ article.upvoted }})</span>
     </div>
   </div>
 </template>

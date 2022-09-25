@@ -1,10 +1,10 @@
 <template>
-  <div v-html="article"></div>
+  <div v-html="content"></div>
 </template>
 
 <script setup lang="ts">
 type Props = {
-  article: string;
+  content: string;
 }
 
 defineProps<Props>()

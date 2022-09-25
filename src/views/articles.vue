@@ -4,11 +4,9 @@
       <Header :header="header ? header : null"></Header>
     </el-header>
     <el-main class="main">
-      <ArticlesComp :articles="cls.abstracts ? cls.abstracts : []"></ArticlesComp>
+      <ArticlesComp :articles="abstracts ? abstracts : []"></ArticlesComp>
     </el-main>
     <el-footer class="footer">
-      <div>{{$route.query.name}}</div>
-      <div>{{$route.query.description}}</div>
       <Footer></Footer>
     </el-footer>
   </el-container>
@@ -16,22 +14,27 @@
 
 <script setup lang="ts">
 import { ref } from "vue"
-import axios from "axios"
+import { useRoute } from "vue-router"
 
 import Header from "../components/header.vue"
 import Footer from "../components/footer.vue"
 import ArticlesComp from "../components/articles.vue"
 
-import { Articles }from "../entity/Article";
+import { Abstract }from "../entity/Article";
+import { get_category, get_category_abstract } from "../api"
 import Base from "../entity/Base"
 
-let cls = ref(new Articles());
-let header = ref(new Base())
-axios.get("./data/articles.json").then((res) => {
-  cls.value = res.data;
-  header.value.set_name(res.data.name);
-  header.value.set_description(res.data.description);
+const route = useRoute();
+
+let header = ref(new Base());
+get_category({id: route.query.id}).then((res) => {
+  header.value = res.data;
 });
+
+let abstracts = ref(new Array<Abstract>());
+get_category_abstract({id: route.query.id}).then((res) => {
+  abstracts.value = res.data;
+})
 
 </script>
 <style scoped>

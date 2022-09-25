@@ -1,10 +1,7 @@
 <template>
-  <div>
-
   <div class="title"> {{ header.name }} </div>
   <div class="introduce">
-    {{ header.description }}
-  </div> 
+    {{ header.description ? header.description : "这货还没有介绍！"}}
   </div>
 </template>
 <script setup lang="ts">

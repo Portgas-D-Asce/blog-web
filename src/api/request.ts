@@ -1,8 +1,8 @@
 import server from "./config";
 
 const get = (url) => {
-    return async () => {
-        return server.get(url).then((res) => {
+    return async (params = {}) => {
+        return server.get(url, {params: params}).then((res) => {
             return res;
         });
     }

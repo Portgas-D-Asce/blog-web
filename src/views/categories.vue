@@ -6,25 +6,25 @@
 import { onMounted } from 'vue';
 import * as echarts from 'echarts';
 import { useRouter } from 'vue-router';
-import { get_classes } from '../api'
-import axios from "axios"
-import Base from "../entity/Base"
+import { get_category_tree } from '../api'
 
 const router = useRouter();
+
 onMounted(() => {
 type EChartsOption = echarts.EChartsOption
 
 let chartDom = document.getElementById('xxx')!;
 let myChart = echarts.init(chartDom);
 myChart.on('click', (params) => {
-  router.push({path: '/articles', query: {id: params.dataIndex}});
+  router.push({path: '/articles', query: {id: params.data.id}});
 });
 var option: EChartsOption;
 
 
 myChart.showLoading();
 
-axios.get("./data/categories.json").then((res) => {
+//axios.get("./data/categories.json").then((res) => {
+get_category_tree({id: 0}).then((res) => {
 myChart.hideLoading();
 
 console.log(res.data)

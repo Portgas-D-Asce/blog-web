@@ -1,10 +1,19 @@
 import get from './request'
 
-const get_classes = get('/api/classes');
+const get_category = get('/category');
 
+const get_category_tree = get('/category-tree');
 
-const get_articles = get('/api/articles');
+const get_category_abstract = get('category-abstract');
 
-const get_article = get('/api/article');
+const get_article = get('/article');
 
-export { get_classes, get_articles, get_article }
+const get_article_content = get('/article-content')
+
+export {
+    get_category,
+    get_category_tree,
+    get_category_abstract,
+    get_article,
+    get_article_content
+}
