@@ -6,7 +6,7 @@
         <el-tag class="ml-2" type="success"> {{ tag.name }} </el-tag>
       </router-link>
     </div>
-    <div class="digest"> {{ article.description }}</div>
+    <div class="digest"> {{ article.description ? article.description : "啊，忘了写摘要." }}</div>
     <div class="statistic">
       {{ article.date }} 
       <span style="float:right;">阅读 ({{ article.read }}) | 拉胯 ({{ article.downvoted }}) | 点赞 ({{ article.upvoted }})</span>

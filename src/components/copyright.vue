@@ -1,7 +1,6 @@
 <template>
   <div class="copyright">
     <p><b>本文作者：</b>Portgas·D·Asce</p>
-    <p><b>本文链接：</b> {{ route.fullPath }} </p>
     <p><b>版权声明：</b> 码字不易，尊重版权，转载请注明出处！</p>
     <p><b>免责声明：</b> 本文部分信息搜集自互联网，如若侵犯了您的相关权益，请告知，本站将立刻处理。</p>
   </div>
