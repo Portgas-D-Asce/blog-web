@@ -1,6 +1,6 @@
 <template>
   <div id="home">
-    <div id="zzz">
+    <div id="motto">
       <p>错的不是我，是这个世界</p>
       <p>没有光明不幸吗？需要光明才是真正的不幸</p>
       <p>一切不幸都是由自身能力不足造成的, 我再也不想当那个无能为力的自己了 ......</p>
@@ -22,15 +22,11 @@
   background-size: cover;
 }
 
-#zzz {
+#motto {
   padding: 30vh 5vw 0 5vw;
   width: 50%;
   color: white;
   font-size: 20pt;
 }
 
-#yyy {
-  font-size: 25pt;
-  color: white;
-}
 </style>

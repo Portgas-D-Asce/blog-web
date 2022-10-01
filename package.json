@@ -9,10 +9,16 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@traptitech/markdown-it-katex": "^3.6.0",
     "axios": "^0.27.2",
     "echarts": "^5.3.3",
     "element-plus": "^2.2.13",
+    "katex": "^0.16.2",
     "markdown-it": "^13.0.1",
+    "markdown-it-anchor": "^8.6.5",
+    "markdown-it-emoji": "^2.0.2",
+    "markdown-it-highlightjs": "^4.0.1",
+    "markdown-it-toc-done-right": "^4.2.0",
     "vue": "^3.2.37",
     "vue-router": "^4.1.3"
   },

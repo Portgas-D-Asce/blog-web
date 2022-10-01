@@ -1,8 +1,13 @@
 <template>
-  <router-view></router-view>
+  <keep-alive>
+    <router-view :key="route.fullPath"></router-view>
+  </keep-alive>
 </template>
 
 <script setup lang="ts">
+import { useRoute } from 'vue-router';
+
+const route = useRoute();
 
 </script>
 
@@ -19,14 +24,21 @@ h1, h2, h3, h4, h5, h6 {
   padding: 0;
 }
 
-a {
-  text-decoration: none;
-  cursor: pointer;
-}
-
 #app {
   width: 100%;
   height: 100%;
-  overflow-x: hidden;
 }
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+  color: #2ce469;
+  transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease, opacity 0.2s ease
+}
+
+a:hover {
+  color: #2d9ebd;
+  transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease, opacity 0.2s ease
+}
+
 </style>

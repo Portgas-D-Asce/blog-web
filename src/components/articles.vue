@@ -2,8 +2,8 @@
   <div v-for="article in articles" class="abstract">
     <router-link :to="{ path: '/article', query: { id: article.id }}" class="title"> {{ article.name }} </router-link>
     <div class="tags">
-      <router-link v-for="tag in article.tags" to="/tags">
-        <el-tag class="ml-2" type="success"> {{ tag.name }} </el-tag>
+      <router-link v-for="tag in article.tags" :to="{ path: '/articles', query: { tid: tag.id } }" class="tag">
+        <el-tag class="ml-2" :type="get_random_tag_type()"> {{ tag.name }} </el-tag>
       </router-link>
     </div>
     <div class="digest"> {{ article.description ? article.description : "啊，忘了写摘要." }}</div>
@@ -22,6 +22,12 @@ type Props = {
 }
 
 defineProps<Props>();
+
+const get_random_tag_type = () => {
+  const tag_type_list:Array<String> = ["primary", "success", "warning", "danger"];
+  const idx = Math.floor(Math.random() * 1000) % tag_type_list.length;
+  return tag_type_list[idx];
+};
 </script>
 
 <style scoped>
@@ -39,7 +45,7 @@ defineProps<Props>();
 .title {
   color: black;
   font-weight: bold;
-  font-size: 3vmin;
+  font-size: 3.6vmin;
 }
 
 .title:hover {
@@ -51,15 +57,19 @@ defineProps<Props>();
   padding-top: 1vmin;
 }
 
+.tag {
+  margin-right: 9px;
+}
+
 .digest {
   color: #666;
-  font-size: 1.6vmin;
+  font-size: 1.8vmin;
   padding: 7px 0px;
   clear: left;
 }
 
 .statistic {
   color: #333;
-  font-size: 1.6vmin;
+  font-size: 1.8vmin;
 }
 </style>

@@ -13,7 +13,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue"
+import { onMounted, ref } from "vue"
 import { useRoute } from "vue-router"
 
 import Header from "../components/header.vue"
@@ -21,21 +21,35 @@ import Footer from "../components/footer.vue"
 import ArticlesComp from "../components/articles.vue"
 
 import { Abstract }from "../entity/Article";
-import { get_category, get_category_abstract } from "../api"
+import { get_category, get_category_abstract, get_tag, get_tag_abstract } from "../api"
 import Base from "../entity/Base"
 
 const route = useRoute();
-
 let header = ref(new Base());
-get_category({id: route.query.id}).then((res) => {
-  header.value = res.data;
-});
-
 let abstracts = ref(new Array<Abstract>());
-get_category_abstract({id: route.query.id}).then((res) => {
-  abstracts.value = res.data;
-})
 
+onMounted(() => {
+
+if(route.query.cid != undefined) {
+  get_category({id: route.query.cid}).then((res) => {
+    header.value = res.data;
+  });
+
+  get_category_abstract({id: route.query.cid}).then((res) => {
+    abstracts.value = res.data;
+  });
+}
+
+if(route.query.tid != undefined) {
+  get_tag({id: route.query.tid}).then((res) => {
+    header.value = res.data;
+  });
+
+  get_tag_abstract({id: route.query.tid}).then((res) => {
+    abstracts.value = res.data;
+  });
+}
+});
 </script>
 <style scoped>
 .main {

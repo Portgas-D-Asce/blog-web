@@ -1,5 +1,5 @@
 <template>
-  <div id="xxx"></div>
+  <div id="categories"></div>
 </template>
 
 <script setup lang="ts">
@@ -13,10 +13,10 @@ const router = useRouter();
 onMounted(() => {
 type EChartsOption = echarts.EChartsOption
 
-let chartDom = document.getElementById('xxx')!;
+let chartDom = document.getElementById('categories')!;
 let myChart = echarts.init(chartDom);
 myChart.on('click', (params) => {
-  router.push({path: '/articles', query: {id: params.data.id}});
+  router.push({path: '/articles', query: {cid: params.data.id}});
 });
 var option: EChartsOption;
 
@@ -88,7 +88,7 @@ myChart.setOption(
 </script>
 
 <style scoped>
-#xxx {
+#categories {
   width: 100%;
   height: 100%;
 }
