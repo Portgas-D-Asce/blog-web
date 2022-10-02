@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h3>Music</h3>
+    <h2>Music &#x1F3B6; &#x1F3B6;</h2>
     <hr>
     <meting-js
       auto="https://y.qq.com/n/yqq/playlist/7679023489.html"

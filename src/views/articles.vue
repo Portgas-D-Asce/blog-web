@@ -28,8 +28,6 @@ const route = useRoute();
 let header = ref(new Base());
 let abstracts = ref(new Array<Abstract>());
 
-onMounted(() => {
-
 if(route.query.cid != undefined) {
   get_category({id: route.query.cid}).then((res) => {
     header.value = res.data;
@@ -49,7 +47,6 @@ if(route.query.tid != undefined) {
     abstracts.value = res.data;
   });
 }
-});
 </script>
 <style scoped>
 .main {

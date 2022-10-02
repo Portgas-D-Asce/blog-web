@@ -20,8 +20,10 @@ html, body {
 }
 
 h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
   margin: 0;
   padding: 0;
+  font-weight: bold;
 }
 
 #app {
@@ -32,7 +34,7 @@ h1, h2, h3, h4, h5, h6 {
 a {
   text-decoration: none;
   cursor: pointer;
-  color: #2ce469;
+  color: black;
   transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease, opacity 0.2s ease
 }
 

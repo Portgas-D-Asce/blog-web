@@ -8,6 +8,8 @@ const get_category_abstract = get('/category/abstract');
 
 const get_tag = get('/tag');
 
+const get_tags = get('/tags');
+
 const get_tag_abstract = get('/tag/abstract');
 
 const get_article = get('/article');
@@ -19,6 +21,7 @@ export {
     get_category_tree,
     get_category_abstract,
     get_tag,
+    get_tags,
     get_tag_abstract,
     get_article,
     get_article_content
