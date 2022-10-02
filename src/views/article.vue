@@ -1,15 +1,15 @@
 <template>
   <el-container>
     <el-header id="header" class="header">
-      <Header :header="header ? header : null"></Header>
+      <Header :header="header"></Header>
     </el-header>
     <el-container class="main">
       <el-main>
         <Copyright></Copyright>
-        <ArticleComp :content="content ? content : ''"></ArticleComp>
+        <ArticleComp :content="content"></ArticleComp>
       </el-main> 
       <el-aside class="aside">
-        <div id="sss" class="aside-container">
+        <div id="aside-container" class="aside-container">
           <TocComp class="aside-comp"></TocComp>
           <Music class="aside-comp"></Music>
         </div>
@@ -20,6 +20,7 @@
     </el-footer> 
   </el-container>
 </template>
+
 <script setup lang="ts">
 import { ref } from "vue"
 import { useRoute } from "vue-router"
@@ -40,7 +41,6 @@ import Footer from "../components/footer.vue"
 import Base from "../entity/Base"
 import { get_article, get_article_content } from "../api"
 
-
 const route = useRoute();
 
 let header = ref(new Base());
@@ -58,36 +58,33 @@ HighLight(md, {});
 Emoji(md, {});
 Katex(md, {});
 Anchor(md, { } );
-Toc(md, { listType: 'ol', callback: (html, ast) => {
-  let toc = document.querySelector('#toc');
-  toc.innerHTML = html;
-}});
-
-
 let content = ref("");
 get_article_content({id: route.query.id}).then((res) => {
   content.value = md.render(res.data);
 });
 
+Toc(md, { listType: 'ol', callback: (html, ast) => {
+  let toc = document.querySelector('#toc');
+  toc.innerHTML = html;
+}});
+
 window.addEventListener('scroll', (ev) =>{
   let header = document.querySelector('#header');
-  let temp = document.querySelector('#sss') as HTMLDivElement;
+  let temp = document.querySelector('#aside-container') as HTMLDivElement;
   if(window.scrollY < header.clientHeight) {
-    temp.classList.remove('side_fix');
-  } else {
-    temp.classList.add('side_fix');
+    temp.classList.remove('aside-fix');
+    return;
   }
-
+  temp.classList.add('aside-fix');
 });
 </script>
 
 <style scoped>
-.side_fix {
+.aside-fix {
   position: fixed;
   top: 0px;
   width: 289px;
 }
-
 .aside-container::-webkit-scrollbar { width: 0 !important }
 .aside-container {
   height: 100vh;
@@ -96,12 +93,9 @@ window.addEventListener('scroll', (ev) =>{
   border-left: 1px solid #ccc;
   padding-left: 10px;
 }
-
 .aside-comp {
     margin-top: 25px;
 }
-
-
 .main {
   padding: 20px 5% 0px 8%;
   min-height: 80vmin;

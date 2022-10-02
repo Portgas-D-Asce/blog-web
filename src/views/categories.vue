@@ -4,8 +4,9 @@
 
 <script setup lang="ts">
 import { onMounted } from 'vue';
-import * as echarts from 'echarts';
 import { useRouter } from 'vue-router';
+import * as echarts from 'echarts';
+
 import { get_category_tree } from '../api'
 
 const router = useRouter();
@@ -20,10 +21,8 @@ myChart.on('click', (params) => {
 });
 var option: EChartsOption;
 
-
 myChart.showLoading();
 
-//axios.get("./data/categories.json").then((res) => {
 get_category_tree({id: 0}).then((res) => {
 myChart.hideLoading();
 

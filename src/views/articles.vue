@@ -1,10 +1,10 @@
 <template>
   <el-container>
     <el-header class="header">
-      <Header :header="header ? header : null"></Header>
+      <Header :header="header"></Header>
     </el-header>
     <el-main class="main">
-      <ArticlesComp :articles="abstracts ? abstracts : []"></ArticlesComp>
+      <ArticlesComp :articles="abstracts"></ArticlesComp>
     </el-main>
     <el-footer class="footer">
       <Footer></Footer>
@@ -13,7 +13,7 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref } from "vue"
+import { ref } from "vue"
 import { useRoute } from "vue-router"
 
 import Header from "../components/header.vue"
