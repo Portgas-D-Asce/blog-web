@@ -1,0 +1,25 @@
+@font-face {
+  font-family: "iconfont"; /* Project id  */
+  src: url('iconfont.ttf?t=1664816635327') format('truetype');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 24px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-codeforces:before {
+  content: "\eb65";
+}
+
+.icon-github:before {
+  content: "\e657";
+}
+
+.icon-leetcode:before {
+  content: "\e60d";
+}
+

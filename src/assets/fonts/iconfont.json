@@ -1,0 +1,30 @@
+{
+  "id": "",
+  "name": "",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "15378236",
+      "name": "codeforces",
+      "font_class": "codeforces",
+      "unicode": "eb65",
+      "unicode_decimal": 60261
+    },
+    {
+      "icon_id": "21730726",
+      "name": "github",
+      "font_class": "github",
+      "unicode": "e657",
+      "unicode_decimal": 58967
+    },
+    {
+      "icon_id": "26267624",
+      "name": "leetcode",
+      "font_class": "leetcode",
+      "unicode": "e60d",
+      "unicode_decimal": 58893
+    }
+  ]
+}
