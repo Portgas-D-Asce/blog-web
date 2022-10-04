@@ -1,6 +1,6 @@
 <template>
   <keep-alive>
-    <router-view :key="route.fullPath"></router-view>
+    <router-view :key="route_key()"></router-view>
   </keep-alive>
 </template>
 
@@ -8,7 +8,13 @@
 import { useRoute } from 'vue-router';
 
 const route = useRoute();
-
+const route_key = () => {
+  const path = route.fullPath;
+  const idx = path.indexOf("#");
+  if(idx == -1) return path;
+  console.log(path.substring(0, idx));
+  return path.substring(0, idx);
+}
 </script>
 
 <style>
