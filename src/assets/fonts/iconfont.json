@@ -6,6 +6,48 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "356491",
+      "name": "置顶",
+      "font_class": "zhiding",
+      "unicode": "e63c",
+      "unicode_decimal": 58940
+    },
+    {
+      "icon_id": "1327516",
+      "name": "zan",
+      "font_class": "zan",
+      "unicode": "e61b",
+      "unicode_decimal": 58907
+    },
+    {
+      "icon_id": "4766972",
+      "name": "tag",
+      "font_class": "tag",
+      "unicode": "e7e4",
+      "unicode_decimal": 59364
+    },
+    {
+      "icon_id": "5732293",
+      "name": "分类",
+      "font_class": "sort",
+      "unicode": "e65e",
+      "unicode_decimal": 58974
+    },
+    {
+      "icon_id": "6901253",
+      "name": "toc",
+      "font_class": "toc",
+      "unicode": "e630",
+      "unicode_decimal": 58928
+    },
+    {
+      "icon_id": "12872650",
+      "name": "公共-置顶",
+      "font_class": "gonggong-zhiding",
+      "unicode": "e650",
+      "unicode_decimal": 58960
+    },
+    {
       "icon_id": "15378236",
       "name": "codeforces",
       "font_class": "codeforces",
@@ -13,18 +55,18 @@
       "unicode_decimal": 60261
     },
     {
+      "icon_id": "15378535",
+      "name": "leetcode",
+      "font_class": "leetcode",
+      "unicode": "ebf2",
+      "unicode_decimal": 60402
+    },
+    {
       "icon_id": "21730726",
       "name": "github",
       "font_class": "github",
       "unicode": "e657",
       "unicode_decimal": 58967
-    },
-    {
-      "icon_id": "26267624",
-      "name": "leetcode",
-      "font_class": "leetcode",
-      "unicode": "e60d",
-      "unicode_decimal": 58893
     }
   ]
 }

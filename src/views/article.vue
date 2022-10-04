@@ -18,6 +18,7 @@
     <el-footer id="footer" class="footer">
       <Footer></Footer>
     </el-footer> 
+    <Tool></Tool>
   </el-container>
 </template>
 
@@ -36,6 +37,7 @@ import Copyright from "../components/copyright.vue"
 import ArticleComp from "../components/article.vue"
 import Music from '../components/music.vue'
 import TocComp from '../components/toc.vue'
+import Tool from '../components/tool.vue'
 import Footer from "../components/footer.vue"
 
 import Base from "../entity/Base"
@@ -109,7 +111,7 @@ window.addEventListener('scroll', (ev) =>{
   background-size: 100vw;
 }
 .footer {
-  z-index: 999;
+  z-index: 998;
   height: 100px;
   padding: 15px 0px 5px 0px;
   background-color: #ccc;
