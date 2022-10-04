@@ -99,7 +99,7 @@ window.addEventListener('scroll', (ev) =>{
     margin-top: 25px;
 }
 .main {
-  padding: 20px 5% 0px 8%;
+  padding: 20px 6% 0px 8%;
   min-height: 80vmin;
   overflow: auto;
 }

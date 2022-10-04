@@ -2,7 +2,7 @@
   <a class="iconfont icon-github" href="https://github.com/Portgas-D-Asce"></a>
   <a class="iconfont icon-codeforces" href="https://codeforces.com/profile/Portgas-D-Ace"></a>
   <div class="copyright">
-     <b>Copyright &copy; {{ date.getFullYear() }} Portgas·D·Asce </b>
+     Copyright &copy; {{ date.getFullYear() }} Portgas·D·Asce
   </div>
 </template>
 <script setup lang="ts">

@@ -16,7 +16,7 @@
     position: fixed;
     z-index: 999;
     bottom: 20px;
-    right: 20px;
+    right: 25px;
 }
 .tool {
     margin-bottom: 10px;
