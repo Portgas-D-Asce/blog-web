@@ -1,5 +1,5 @@
 <template>
-  <div id="tags">
+  <div id="tags" class="tags">
     <router-link v-for="tag in tags" :to="{ path: '/articles', query: { tid: tag.id } }" class="tag">
       <el-tag class="ml-2" :type="get_random_tag_type()"> {{ tag.name }} </el-tag>
     </router-link>
