@@ -13,11 +13,11 @@ let router = createRouter({
     },
     {
       path: '/category',
-      component: () => import('../views/categories.vue')
+      component: () => import('../views/category.vue')
     },
     {
       path: '/tag',
-      component: () => import('../views/tags.vue')
+      component: () => import('../views/tag.vue')
     },
     {
       path: '/category/:id',

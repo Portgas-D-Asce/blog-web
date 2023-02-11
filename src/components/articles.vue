@@ -2,7 +2,7 @@
   <div v-for="article in articles" class="abstract">
     <router-link :to="{ path: '/article/' + article.id }" class="title"> {{ article.name }} </router-link>
     <div class="tags">
-      <router-link v-for="tag in article.tags" :to="{ path: '/articles', query: { tid: tag.id } }" class="tag">
+      <router-link v-for="tag in article.tags" :to="{ path: '/tag/' + tag.id }" class="tag">
         <el-tag class="ml-2" :type="get_random_tag_type()"> {{ tag.name }} </el-tag>
       </router-link>
     </div>
