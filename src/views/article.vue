@@ -41,14 +41,14 @@ import Tool from '../components/tool.vue'
 import Footer from "../components/footer.vue"
 
 import Base from "../entity/Base"
-import { get_article, get_article_content } from "../api"
+import { get } from "../api"
 
 const route = useRoute();
 
 let header = ref(new Base());
-get_article({id: route.query.id}).then((res) => {
+get(route.path).then((res) => {
   header.value = res.data;
-});
+})
 
 let md = new MarkdownIt({
   breaks: true,
@@ -61,7 +61,8 @@ Emoji(md, {});
 Katex(md, {});
 Anchor(md, { } );
 let content = ref("");
-get_article_content({id: route.query.id}).then((res) => {
+
+get(route.path + '/content').then((res) => {
   content.value = md.render(res.data);
 });
 

@@ -4,12 +4,13 @@
 
 <script setup lang="ts">
 import { onMounted } from 'vue';
-import { useRouter } from 'vue-router';
+import { useRoute, useRouter } from 'vue-router';
 import * as echarts from 'echarts';
 
-import { get_category_tree } from '../api'
+import { get } from '../api'
 
 const router = useRouter();
+const route = useRoute();
 
 type EChartsOption = echarts.EChartsOption
 let option : EChartsOption = {
@@ -60,12 +61,11 @@ onMounted(() => {
   let chartDom = document.getElementById('categories')!;
   let myChart = echarts.init(chartDom);
   myChart.on('click', (params) => {
-    router.push({path: '/articles', query: {cid: params.data.id}});
+    router.push({path: '/category/' + params.data.id});
   });
 
   myChart.showLoading();
-
-  get_category_tree({id: 0}).then((res) => {
+  get(route.path + "/0/tree").then((res) => {
     myChart.hideLoading();
     option.series[0].data = [res.data];
     myChart.setOption(option);

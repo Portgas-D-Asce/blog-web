@@ -33,6 +33,10 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: bold;
 }
 
+img {
+  width: 100%;
+}
+
 #app {
   width: 100%;
   height: 100%;

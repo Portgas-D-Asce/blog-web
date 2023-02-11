@@ -1,6 +1,16 @@
 <template>
   <div id="tags" class="tags">
-    <router-link v-for="tag in tags" :to="{ path: '/articles', query: { tid: tag.id } }" class="tag">
+    <h2 class="todo">打算实现成球形标签云的样子</h2>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <router-link v-for="tag in tags" :to="{ path: '/tag/' + tag.id }" class="tag">
       <el-tag class="ml-2" :type="get_random_tag_type()"> {{ tag.name }} </el-tag>
     </router-link>
   </div>
@@ -8,13 +18,15 @@
 
 <script setup lang="ts">
 import { ref } from 'vue';
-import { get_tags } from '../api'; 
+import { useRoute } from 'vue-router';
+import { get } from '../api'; 
 
 import { Tag } from "../entity/Tag"
 
+const route = useRoute()
 let tags = ref(Array<Tag>());
 
-get_tags({}).then((res) => {
+get(route.path).then((res) => {
   tags.value = res.data;
 });
 
@@ -26,10 +38,14 @@ const get_random_tag_type = () => {
 
 </script>
 <style scoped>
+.todo {
+  color: white;
+}
 .tags {
   width: 100vw;
   height: 100vh;
   background: url("../assets/image/tags.png") no-repeat top; 
   background-size: 100vw;
+  text-align: center;
 }
 </style>

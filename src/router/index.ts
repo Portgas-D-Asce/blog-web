@@ -12,19 +12,23 @@ let router = createRouter({
       component: () => import('../views/home.vue')
     },
     {
-      path: '/categories',
+      path: '/category',
       component: () => import('../views/categories.vue')
     },
     {
-      path: '/tags',
+      path: '/tag',
       component: () => import('../views/tags.vue')
     },
     {
-      path: '/articles',
+      path: '/category/:id',
       component: () => import('../views/articles.vue')
     },
     {
-      path: '/article',
+      path: '/tag/:id',
+      component: () => import('../views/articles.vue')
+    },
+    {
+      path: '/article/:id',
       component: () => import('../views/article.vue')
     },
     {

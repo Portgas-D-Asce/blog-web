@@ -1,6 +1,6 @@
 <template>
   <div v-for="article in articles" class="abstract">
-    <router-link :to="{ path: '/article', query: { id: article.id }}" class="title"> {{ article.name }} </router-link>
+    <router-link :to="{ path: '/article/' + article.id }" class="title"> {{ article.name }} </router-link>
     <div class="tags">
       <router-link v-for="tag in article.tags" :to="{ path: '/articles', query: { tid: tag.id } }" class="tag">
         <el-tag class="ml-2" :type="get_random_tag_type()"> {{ tag.name }} </el-tag>
@@ -36,38 +36,25 @@ const get_random_tag_type = () => {
   box-shadow: 1px 1px 10px rgba(0,0,0,.2);
   padding: 8px 15px;
   border-bottom: 1px solid #eee;
-  
   border-radius: 5px;
   margin-bottom: 15px;
   opacity:0.9;
 }
-
 .title {
-  color: black;
-  font-weight: bold;
   font-size: 3.6vmin;
 }
-
-.title:hover {
-  color: #2d96bd;
-  transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease, opacity 0.2s ease;
-}
-  
 .tags {
   padding-top: 1vmin;
 }
-
 .tag {
   margin-right: 9px;
 }
-
 .digest {
   color: #666;
   font-size: 1.8vmin;
   padding: 7px 0px;
   clear: left;
 }
-
 .statistic {
   color: #333;
   font-size: 1.8vmin;

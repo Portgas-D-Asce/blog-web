@@ -21,32 +21,20 @@ import Footer from "../components/footer.vue"
 import ArticlesComp from "../components/articles.vue"
 
 import { Abstract }from "../entity/Article";
-import { get_category, get_category_abstract, get_tag, get_tag_abstract } from "../api"
+import { get } from "../api"
 import Base from "../entity/Base"
 
 const route = useRoute();
 let header = ref(new Base());
 let abstracts = ref(new Array<Abstract>());
 
-if(route.query.cid != undefined) {
-  get_category({id: route.query.cid}).then((res) => {
-    header.value = res.data;
-  });
+get(route.path).then((res) => {
+  header.value = res.data;
+});
 
-  get_category_abstract({id: route.query.cid}).then((res) => {
-    abstracts.value = res.data;
-  });
-}
-
-if(route.query.tid != undefined) {
-  get_tag({id: route.query.tid}).then((res) => {
-    header.value = res.data;
-  });
-
-  get_tag_abstract({id: route.query.tid}).then((res) => {
-    abstracts.value = res.data;
-  });
-}
+get(route.path + '/abstract').then((res) => {
+  abstracts.value = res.data;
+});
 </script>
 <style scoped>
 .main {

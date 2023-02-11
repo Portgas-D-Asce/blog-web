@@ -1,28 +1,18 @@
-import get from './request'
+import server from "./config";
 
-const get_category = get('/category');
+const get = async (url = '', params = {}) => {
+    return server.get(url, {params: params}).then((res) => {
+        return res;
+    });
+}
 
-const get_category_tree = get('/category/tree');
-
-const get_category_abstract = get('/category/abstract');
-
-const get_tag = get('/tag');
-
-const get_tags = get('/tags');
-
-const get_tag_abstract = get('/tag/abstract');
-
-const get_article = get('/article');
-
-const get_article_content = get('/article/content')
+const put = async (url = '', params = {}) => {
+    return server.put(url, {params: params}).then((res) => {
+        return res;
+    });
+}
 
 export {
-    get_category,
-    get_category_tree,
-    get_category_abstract,
-    get_tag,
-    get_tags,
-    get_tag_abstract,
-    get_article,
-    get_article_content
+    get,
+    put
 }
