@@ -31,3 +31,6 @@ onMounted(() => {
   document.body.appendChild(s);
 });
 </script>
+
+<style scoped>
+</style>

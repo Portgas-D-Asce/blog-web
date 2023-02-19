@@ -1,8 +1,8 @@
 <template>
   <div id="tools" class="tools">
     <div class="tool"><a class="iconfont icon-zhiding" href="#top"></a></div>
-    <div class="tool"><a class="iconfont icon-sort" href="/categories"></a></div>
-    <div class="tool"><a class="iconfont icon-tag" href="/tags"></a></div>
+    <div class="tool"><a class="iconfont icon-sort" href="/category"></a></div>
+    <div class="tool"><a class="iconfont icon-tag" href="/tag"></a></div>
     <div class="tool"><b><a class="iconfont icon-zan"></a></b></div>
   </div>
 </template>

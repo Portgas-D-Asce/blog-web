@@ -78,29 +78,35 @@ window.addEventListener('scroll', (ev) =>{
     temp.classList.remove('aside-fix');
     return;
   }
+  let footer = document.querySelector('#footer');
+  let diff = footer.clientHeight + window.scrollY +
+      document.body.clientHeight - document.body.scrollHeight;
+  diff = Math.max(diff, 0);
+  temp.style.height = (document.body.clientHeight - diff) + "px";
   temp.classList.add('aside-fix');
 });
 </script>
 
 <style scoped>
+.aside {
+  width: 330px;
+}
 .aside-fix {
   position: fixed;
   top: 0px;
-  width: 289px;
+  width: 319px;
 }
 .aside-container::-webkit-scrollbar { width: 0 !important }
 .aside-container {
-  height: 100vh;
-  overflow-y: auto;
-  overflow-x: auto;
-  border-left: 1px solid #ccc;
+  border-left: 1px solid #ddd;
+  overflow: auto;
   padding-left: 10px;
 }
 .aside-comp {
     margin-top: 25px;
 }
 .main {
-  padding: 20px 6% 0px 8%;
+  padding: 20px 4% 0px 6%;
   min-height: 80vmin;
   overflow: auto;
 }

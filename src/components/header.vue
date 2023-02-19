@@ -15,14 +15,14 @@ defineProps<Props>()
 </script>
 <style scoped>
 .title {
-  font-size: 4vmin;
+  font-size: 2.2em;
   font-weight: bold;
   color: white;
 }
 
 .introduce {
   color: white;
-  font-size: 2.4vmin;
+  font-size: 1.8em;
   padding-top: 8px;
 }
 </style>

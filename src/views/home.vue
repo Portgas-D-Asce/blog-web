@@ -8,7 +8,7 @@
       Let's
       <span><router-link class="destory" to="/category" id="enter">destory</router-link></span>
       /
-      <span><router-link class="save" to="/tag" id="enter">save</router-link></span>
+      <span><router-link class="save" to="/tag" id="enter">rebulid</router-link></span>
       the world.
     </div>
   </div>

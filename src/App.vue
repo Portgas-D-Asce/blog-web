@@ -26,7 +26,12 @@ html, body {
   scroll-behavior: smooth;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1 {
+  font-size: 2em !important;
+  font-weight: bold;
+}
+
+h2, h3, h4, h5, h6 {
   margin: 20px 0 10px;
   margin: 0;
   padding: 0;
@@ -52,6 +57,14 @@ a {
 a:hover {
   color: #2d9ebd;
   transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease, opacity 0.2s ease
+}
+
+.hljs {
+  line-height: 1.8em;
+  font-family: Consolas, Monaco, monospace;
+  tab-size: 4;
+  background-color: rgb(250, 250, 250);
+  font-size: 13px;
 }
 
 </style>
