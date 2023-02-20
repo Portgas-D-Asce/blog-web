@@ -1,51 +1,86 @@
 <template>
-  <div id="tags" class="tags">
-    <h2 class="todo">打算实现成球形标签云的样子</h2>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <router-link v-for="tag in tags" :to="{ path: '/tag/' + tag.id }" class="tag">
-      <el-tag class="ml-2" :type="get_random_tag_type()"> {{ tag.name }} </el-tag>
-    </router-link>
-  </div>
+	<div id="tags" class="tags"></div>
 </template>
-
+ 
 <script setup lang="ts">
-import { ref } from 'vue';
-import { useRoute } from 'vue-router';
-import { get } from '../api'; 
+import { onMounted } from 'vue';
+import * as echarts from 'echarts';
+import 'echarts-wordcloud';
+import { useRoute, useRouter } from 'vue-router';
 
-import { Tag } from "../entity/Tag"
 
-const route = useRoute()
-let tags = ref(Array<Tag>());
+import { get } from '../api'
 
-get(route.path).then((res) => {
-  tags.value = res.data;
-});
+const router = useRouter();
+const route = useRoute();
 
-const get_random_tag_type = () => {
-  const tag_type_list:Array<String> = ["primary", "success", "warning", "danger"];
-  const idx = Math.floor(Math.random() * 1000) % tag_type_list.length;
-  return tag_type_list[idx];
+type EChartsOption = echarts.EChartsOption
+let option : EChartsOption = {
+	backgroundColor: "#fff",
+	// tooltip: {
+	//   pointFormat: "{series.name}: <b>{point.percentage:.1f}%</b>"
+	// },
+	series: [{
+		type: "wordCloud",
+		//用来调整词之间的距离
+		gridSize: 20,
+		//用来调整字的大小范围
+		// Text size range which the value in data will be mapped to.
+		// Default to have minimum 12px and maximum 60px size.
+		sizeRange: [14, 60],
+		// Text rotation range and step in degree. Text will be rotated randomly in range [-90,                                                                             90] by rotationStep 45
+		//用来调整词的旋转方向，，[0,0]--代表着没有角度，也就是词为水平方向，需要设置角度参考注释内容
+		// rotationRange: [-45, 0, 45, 90],
+		// rotationRange: [ 0,90],
+		//rotationRange: [0, 0],
+		rotationRange: [-45, 0, 45, 90],
+		//随机生成字体颜色
+		// maskImage: maskImage,
+		textStyle: {
+			color: function () {
+				return (
+					"rgb(" +
+					Math.round(Math.random() * 255) +
+					", " +
+					Math.round(Math.random() * 255) +
+					", " +
+					Math.round(Math.random() * 255) +
+					")"
+				);
+			}
+		},
+		//位置相关设置
+		// Folllowing left/top/width/height/right/bottom are used for positioning the word cloud
+		// Default to be put in the center and has 75% x 80% size.
+		left: "center",
+		top: "center",
+		right: null,
+		bottom: null,
+		width: "100%",
+		height: "100%"
+	}]
 };
 
+onMounted(() => {
+    let chartDom = document.getElementById('tags')!;
+    let myChart = echarts.init(chartDom);
+
+    myChart.on('click', (params) => {
+        router.push({path: '/tag/' + params.data.id});
+    });
+
+    myChart.showLoading();
+    get(route.path).then((res) => {
+        myChart.hideLoading();
+        option.series[0].data = res.data;
+        myChart.setOption(option);
+    });
+});
 </script>
 <style scoped>
-.todo {
-  color: white;
-}
 .tags {
   width: 100vw;
   height: 100vh;
-  background: url("../assets/image/tags.png") no-repeat top; 
-  background-size: 100vw;
-  text-align: center;
 }
 </style>
+

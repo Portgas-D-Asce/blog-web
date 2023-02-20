@@ -12,6 +12,7 @@
     "@traptitech/markdown-it-katex": "^3.6.0",
     "axios": "^0.27.2",
     "echarts": "^5.3.3",
+    "echarts-wordcloud": "^2.1.0",
     "element-plus": "^2.2.13",
     "katex": "^0.16.2",
     "markdown-it": "^13.0.1",
