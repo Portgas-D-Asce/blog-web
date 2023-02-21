@@ -51,12 +51,12 @@ const get_random_tag_type = () => {
 }
 .digest {
   color: #666;
-  font-size: 1.8vmin;
-  padding: 7px 0px;
+  font-size: 14px;
+  padding: 10px 0px;
   clear: left;
 }
 .statistic {
   color: #333;
-  font-size: 1.8vmin;
+  font-size: 14px;
 }
 </style>
