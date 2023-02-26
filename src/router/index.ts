@@ -2,13 +2,15 @@
 //../views/index.vue 为对应显示文件的位置
 import { createRouter, createWebHistory } from 'vue-router'
  
-const routerHistory = createWebHistory()
- 
 let router = createRouter({
-  history: routerHistory,
+  history: createWebHistory("/blog"),
   routes: [
     {
       path: '/',
+      component: () => import('../views/home.vue'),
+    },
+    {
+      path: '/index.html',
       component: () => import('../views/home.vue')
     },
     {
@@ -32,7 +34,7 @@ let router = createRouter({
       component: () => import('../views/article.vue')
     },
     {
-      path: '/:pathMatch(.*)',
+      path: '/:pathMatch+',
       component: () => import('../views/404.vue')
     }
   ]

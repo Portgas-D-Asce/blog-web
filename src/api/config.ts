@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const server = axios.create({
-    baseURL: 'http://localhost:8080',
+    baseURL: 'http://localhost:8080/blog/api/v1',
     headers: {
         'Content-Type': 'application/json;charset=UTF-8'
     },

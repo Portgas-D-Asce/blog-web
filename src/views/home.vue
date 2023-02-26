@@ -8,7 +8,7 @@
       Let's
       <span><router-link class="destory" to="/category" id="enter">destory</router-link></span>
       /
-      <span><router-link class="save" to="/tag" id="enter">rebulid</router-link></span>
+      <span><router-link class="rebuild" to="/tag" id="enter">rebulid</router-link></span>
       the world.
     </div>
   </div>
@@ -16,8 +16,8 @@
 
 <script setup lang="ts">
 </script>
-<style scoped>
 
+<style scoped>
 .container {
   text-align: center;
   background: url("../assets/image/home.jpg") no-repeat top right;
@@ -44,7 +44,7 @@ a:hover {
 .destory {
   color: red;
 }
-.save {
+.rebuild {
   color: green;
 }
 

@@ -1,20 +1,21 @@
 <template>
-  <keep-alive>
+  <router-view></router-view>
+  <!--<keep-alive>
     <router-view :key="route_key()"></router-view>
-  </keep-alive>
+  </keep-alive>-->
 </template>
 
 <script setup lang="ts">
 import { useRoute } from 'vue-router';
 
-const route = useRoute();
-const route_key = () => {
-  const path = route.fullPath;
-  const idx = path.indexOf("#");
-  if(idx == -1) return path;
-  console.log(path.substring(0, idx));
-  return path.substring(0, idx);
-}
+//const route = useRoute();
+//const route_key = () => {
+//  const path = route.fullPath;
+//  const idx = path.indexOf("#");
+//  if(idx == -1) return path;
+//  console.log(path.substring(0, idx));
+//  return path.substring(0, idx);
+//}
 </script>
 
 <style>
