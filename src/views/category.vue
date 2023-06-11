@@ -65,7 +65,7 @@ onMounted(() => {
   });
 
   myChart.showLoading();
-  get(route.path + "/0/tree").then((res) => {
+  get(route.path + "/0").then((res) => {
     myChart.hideLoading();
     option.series[0].data = [res.data];
     myChart.setOption(option);

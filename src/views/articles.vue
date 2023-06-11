@@ -28,7 +28,7 @@ const route = useRoute();
 let header = ref(new Base());
 let abstracts = ref(new Array<Abstract>());
 
-get(route.path).then((res) => {
+get(route.path, {"recursion": "false"}).then((res) => {
   header.value = res.data;
 });
 

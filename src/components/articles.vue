@@ -39,6 +39,9 @@ const get_random_tag_type = () => {
   border-radius: 5px;
   margin-bottom: 15px;
   opacity:0.9;
+  background: url("../assets/image/articles.jpg") no-repeat right top;
+  background-size: 50%;
+  height: 270px;
 }
 .title {
   font-size: 3.6vmin;
