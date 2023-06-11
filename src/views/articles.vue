@@ -28,11 +28,11 @@ const route = useRoute();
 let header = ref(new Base());
 let abstracts = ref(new Array<Abstract>());
 
-get(route.path, {"recursion": "false"}).then((res) => {
-  header.value = res.data;
-});
+//get(route.path, {"recursion": "false"}).then((res) => {
+//  header.value = res.data;
+//});
 
-get(route.path + '/abstract').then((res) => {
+get(route.fullPath).then((res) => {
   abstracts.value = res.data;
 });
 </script>

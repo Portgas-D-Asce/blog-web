@@ -22,11 +22,7 @@ let router = createRouter({
       component: () => import('../views/tag.vue')
     },
     {
-      path: '/category/:id',
-      component: () => import('../views/articles.vue')
-    },
-    {
-      path: '/tag/:id',
+      path: '/article',
       component: () => import('../views/articles.vue')
     },
     {

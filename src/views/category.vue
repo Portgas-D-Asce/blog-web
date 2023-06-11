@@ -61,7 +61,7 @@ onMounted(() => {
   let chartDom = document.getElementById('categories')!;
   let myChart = echarts.init(chartDom);
   myChart.on('click', (params) => {
-    router.push({path: '/category/' + params.data["id"]});
+    router.push({path: '/article', query: {category_id: params.data["id"]}});
   });
 
   myChart.showLoading();
