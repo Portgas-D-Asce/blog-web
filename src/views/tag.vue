@@ -70,7 +70,7 @@ onMounted(() => {
     });
 
     myChart.showLoading();
-    get(route.path).then((res) => {
+    get(route.path + "/statistics").then((res) => {
         myChart.hideLoading();
         option.series[0].data = res.data;
         myChart.setOption(option);
