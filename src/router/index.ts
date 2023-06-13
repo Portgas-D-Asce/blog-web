@@ -14,19 +14,19 @@ let router = createRouter({
       component: () => import('../views/home.vue')
     },
     {
-      path: '/category',
-      component: () => import('../views/category.vue')
+      path: '/categories',
+      component: () => import('../views/categories.vue')
     },
     {
-      path: '/tag',
-      component: () => import('../views/tag.vue')
+      path: '/tags',
+      component: () => import('../views/tags.vue')
     },
     {
-      path: '/article',
+      path: '/articles',
       component: () => import('../views/articles.vue')
     },
     {
-      path: '/article/:id',
+      path: '/articles/:id',
       component: () => import('../views/article.vue')
     },
     {

@@ -6,9 +6,9 @@
       <p>一切不幸都是由自身能力不足造成的, 我再也不想当那个无能为力的自己了 ......</p>
       <br><br><br><br>
       Let's
-      <span><router-link class="destory" to="/category" id="enter">destory</router-link></span>
+      <span><router-link class="destory" to="/categories" id="enter">destory</router-link></span>
       /
-      <span><router-link class="rebuild" to="/tag" id="enter">rebulid</router-link></span>
+      <span><router-link class="rebuild" to="/tags" id="enter">rebulid</router-link></span>
       the world.
     </div>
   </div>

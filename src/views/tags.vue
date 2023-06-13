@@ -66,7 +66,7 @@ onMounted(() => {
     let myChart = echarts.init(chartDom);
 
     myChart.on('click', (params) => {
-        router.push({path: '/article', query: {tag_id: params.data["id"]}});
+        router.push({path: '/articles', query: {tag_id: params.data["id"]}});
     });
 
     myChart.showLoading();
