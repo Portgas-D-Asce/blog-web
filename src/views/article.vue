@@ -62,8 +62,8 @@ Katex(md, {});
 Anchor(md, { } );
 let content = ref("");
 
-get(route.path + '/content').then((res) => {
-  content.value = md.render(res.data);
+get(route.path).then((res) => {
+  content.value = md.render(res.data.content);
 });
 
 Toc(md, { listType: 'ol', callback: (html, ast) => {
