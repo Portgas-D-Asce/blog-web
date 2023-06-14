@@ -25,6 +25,7 @@
 <script setup lang="ts">
 import { ref } from "vue"
 import { useRoute } from "vue-router"
+import { Base64 } from "js-base64"
 import MarkdownIt from 'markdown-it'
 import HighLight from 'markdown-it-highlightjs'
 import Emoji from 'markdown-it-emoji'
@@ -45,11 +46,6 @@ import { get } from "../api"
 
 const route = useRoute();
 
-let header = ref(new Base());
-get(route.path).then((res) => {
-  header.value = res.data;
-})
-
 let md = new MarkdownIt({
   breaks: true,
   html: true,
@@ -60,10 +56,15 @@ HighLight(md, {});
 Emoji(md, {});
 Katex(md, {});
 Anchor(md, { } );
+
+let header = ref(new Base());
 let content = ref("");
 
 get(route.path).then((res) => {
-  content.value = md.render(res.data.content);
+  header.value.id = res.data.id;
+  header.value.set_name(res.data.name)
+  header.value.set_description(res.data.description)
+  content.value = md.render(Base64.decode(res.data.content));
 });
 
 Toc(md, { listType: 'ol', callback: (html, ast) => {
