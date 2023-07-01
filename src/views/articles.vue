@@ -28,9 +28,15 @@ const route = useRoute();
 let header = ref(new Base());
 let abstracts = ref(new Array<Abstract>());
 
-//get(route.path, {"recursion": "false"}).then((res) => {
-//  header.value = res.data;
-//});
+let path = undefined
+if(route.query.category_id != undefined) {
+  path = "/categories/" + route.query.category_id;
+} else {
+  path = "/tags/" + route.query.tag_id;
+}
+get(path, {"recursion": "false"}).then((res) => {
+  header.value = res.data;
+});
 
 get(route.fullPath).then((res) => {
   abstracts.value = res.data;

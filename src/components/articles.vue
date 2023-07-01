@@ -1,5 +1,5 @@
 <template>
-  <div v-for="article in articles" class="abstract">
+  <div v-for="article in articles" class="abstract" :style="{background: 'url(https://localhost:8080/blog/api/v1/images?name=' + article.id + '-0.jpg) no-repeat right top', 'background-size': '50%'}">
     <router-link :to="{ path: '/articles/' + article.id }" class="title"> {{ article.name }} </router-link>
     <div class="tags">
       <router-link v-for="tag in article.tags" :to="{ path: '/tag/' + tag.id }" class="tag">
@@ -39,7 +39,6 @@ const get_random_tag_type = () => {
   border-radius: 5px;
   margin-bottom: 15px;
   opacity:0.9;
-  background: url("../assets/image/articles.jpg") no-repeat right top;
   background-size: 50%;
   height: 270px;
 }
