@@ -14,6 +14,7 @@
   background-color: #f7f7fc;
   padding: 15px 18px 3px;
   margin-bottom: 20px;
+  font-size: 18px;
 }
 .copyright div {
   margin-bottom: 12px;
