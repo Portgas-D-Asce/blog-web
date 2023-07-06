@@ -1,6 +1,7 @@
 <template>
     <div v-for="article in articles" class="abstract">
         <img class="top" :src="`https://localhost:8080/blog/api/v1/images?name=${article.id}-0.jpg`"/>
+        <!--<img class="top" :src="`/blog/api/v1/images?name=${article.id}-0.jpg`"/>-->
         <div class="bottom">
             <router-link :to="{ path: '/articles/' + article.id }" class="title"> {{ article.name }} </router-link>
             <div class="tags">
@@ -50,7 +51,7 @@ const get_random_tag_type = () => {
   padding: 8px 15px;
 }
 .title {
-  font-size: 3.6vmin;
+  font-size: 28px;
 }
 .tags {
   padding-top: 20px;

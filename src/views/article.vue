@@ -125,4 +125,7 @@ window.addEventListener('scroll', (ev) =>{
   background-color: #ccc;
   text-align: center;
 }
+p, ul, li, ol, a {
+  font-size: 16px;
+}
 </style>

@@ -25,7 +25,7 @@ html, body {
 }
 
 h1 {
-  font-size: 2em !important;
+  font-size: 28px !important;
   font-weight: bold;
 }
 
@@ -64,5 +64,4 @@ a:hover {
   background-color: rgb(250, 250, 250);
   font-size: 13px;
 }
-
 </style>

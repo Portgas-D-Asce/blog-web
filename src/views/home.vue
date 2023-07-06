@@ -30,7 +30,7 @@
   padding: 30vh 5vw 0 5vw;
   width: 50%;
   color: white;
-  font-size: 20pt;
+  font-size: 28px;
 }
 
 a {
