@@ -1,7 +1,5 @@
 <template>
     <div v-for="article in articles" class="abstract">
-        <img class="top" :src="`https://localhost:8080/blog/api/v1/images?name=${article.id}-0.jpg`"/>
-        <!--<img class="top" :src="`/blog/api/v1/images?name=${article.id}-0.jpg`"/>-->
         <div class="bottom">
             <router-link :to="{ path: '/articles/' + article.id }" class="title"> {{ article.name }} </router-link>
             <div class="tags">
@@ -15,6 +13,10 @@
                 <span style="float: right;">阅读 ({{ article.read }}) | 拉胯 ({{ article.downvoted }}) | 点赞 ({{ article.upvoted }})</span>
             </div>
         </div>
+        <!--
+          <img class="top" :src="`/blog/api/v1/images?name=${article.id}-0.jpg`"/>
+        -->
+        <img class="top" :src="`https://localhost:8080/blog/api/v1/images?name=${article.id}-0.jpg`"/>
     </div>
 </template>
 
