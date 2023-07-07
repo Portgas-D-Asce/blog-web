@@ -54,6 +54,7 @@ get(route.fullPath).then((res) => {
   padding-top: 26vh;
   background-size: cover;
   background: url("../assets/image/articles.jpg") no-repeat right top;
+  background-size: 100vw;
 }
 .footer {
   height: 100px;
