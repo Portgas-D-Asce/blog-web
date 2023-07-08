@@ -16,7 +16,7 @@
         <!--
           <img class="top" :src="`/blog/api/v1/images?name=${article.id}-0.jpg`"/>
         -->
-        <img class="top" :src="`https://localhost:8080/blog/api/v1/images?name=${article.id}-0.jpg`"/>
+        <img class="top" :src="`https://localhost:8080/blog/api/v1/images?name=${article.id}-0.jpg&ratio=2`"/>
     </div>
 </template>
 
@@ -37,6 +37,11 @@ const get_random_tag_type = () => {
 </script>
 
 <style scoped>
+.page {
+  padding: 15px 0;
+  font-size: 24px !important;
+  justify-content: center;
+}
 .abstract {
   background-color: white;
   box-shadow: 1px 1px 10px rgba(0,0,0,.2);
