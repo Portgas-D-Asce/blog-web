@@ -13,10 +13,7 @@
                 <span style="float: right;">阅读 ({{ article.read }}) | 拉胯 ({{ article.downvoted }}) | 点赞 ({{ article.upvoted }})</span>
             </div>
         </div>
-        <!--
-          <img class="top" :src="`/blog/api/v1/images?name=${article.id}-0.jpg`"/>
-        -->
-        <img class="top" :src="`https://localhost:8080/blog/api/v1/images?name=${article.id}-0.jpg&ratio=2`"/>
+        <img class="top" :src="`/blog/api/v1/images?name=${article.id}-0.jpg&ratio=2`"/>
     </div>
 </template>
 
