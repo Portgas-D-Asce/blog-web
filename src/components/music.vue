@@ -3,7 +3,7 @@
     <h2>Music &#x1F3B6; &#x1F3B6;</h2>
     <hr>
     <meting-js
-      auto="https://y.qq.com/n/yqq/playlist/7679023489.html"
+        auto="https://y.qq.com/n/yqq/playlist/7679023489.html"
         order="random"
         volume="0.2">
       </meting-js>

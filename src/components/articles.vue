@@ -1,20 +1,48 @@
 <template>
-    <div v-for="article in articles" class="abstract">
-        <div class="bottom">
-            <router-link :to="{ path: '/articles/' + article.id }" class="title"> {{ article.name }} </router-link>
-            <div class="tags">
-                <router-link v-for="tag in article.tags" :to="{ path: '/articles', query: {'tag_id': tag.id}}" class="tag">
-                    <el-tag class="ml-2" :type="get_random_tag_type()"> {{ tag.name }} </el-tag>
-                </router-link>
-            </div>
-            <div class="digest"> {{ article.description ? article.description : "啊，忘了写摘要." }}</div>
-            <div class="statistic">
-                <span class="time">{{ article.date }}</span> 
-                <span style="float: right;">阅读 ({{ article.read }}) | 拉胯 ({{ article.downvoted }}) | 点赞 ({{ article.upvoted }})</span>
-            </div>
-        </div>
-        <img class="top" :src="`/blog/api/v1/images?name=${article.id}-0.jpg&ratio=2`"/>
-    </div>
+    <el-row>
+        <el-col :span="18" :offset="3">
+            <el-row v-for="article in articles" class="abstract">
+                <!--
+                  <img class="top" :src="`/blog/api/v1/images?name=${article.id}-0.jpg&ratio=2`"/>
+                -->
+                <el-col :span="10">
+                    <img :src="`https://localhost:8080/blog/api/v1/images?name=${article.id}-0.jpg&ratio=2`"/>
+                </el-col>
+                
+                <el-col :span="14" class="right">
+                    <el-row class="title">
+                        <el-col :span="24"> 
+                            <router-link :to="{ path: '/articles/' + article.id }">
+                                {{ article.name }}
+                            </router-link>
+                        </el-col>
+                    </el-row>
+
+                    <el-row class="tags">
+                        <el-col :span="24"> 
+                            <router-link v-for="tag in article.tags" 
+                                    :to="{ path: '/articles', query: {'tag_id': tag.id}}" class="tag">
+                                <el-tag class="ml-2" :type="get_random_tag_type()"> {{ tag.name }} </el-tag>
+                            </router-link>
+                        </el-col>
+                    </el-row>
+        
+                    <el-row class="digest">
+                        <el-col :span="24"> {{ article.description }} </el-col>
+                    </el-row>
+
+                    <el-row class="statistic">
+                        <el-col :span="12"> {{ article.date }} </el-col>
+                        <el-col :span="12" style="text-align: right;">
+                            阅读 ({{ article.read }}) | 
+                            拉胯 ({{ article.downvoted }}) | 
+                            点赞 ({{ article.upvoted }})
+                        </el-col>
+                    </el-row>
+                </el-col>
+            </el-row>
+        </el-col>
+    </el-row>
 </template>
 
 <script setup lang="ts">
@@ -34,11 +62,6 @@ const get_random_tag_type = () => {
 </script>
 
 <style scoped>
-.page {
-  padding: 15px 0;
-  font-size: 24px !important;
-  justify-content: center;
-}
 .abstract {
   background-color: white;
   box-shadow: 1px 1px 10px rgba(0,0,0,.2);
@@ -48,11 +71,10 @@ const get_random_tag_type = () => {
   opacity:0.9;
   background-size: 50%;
 }
-.top {
-  width: 100%;
-}
-.bottom {
-  padding: 8px 15px;
+.right {
+  padding: 8px 15px !important;
+  display: flex;
+  flex-direction: column;
 }
 .title {
   font-size: 28px;
@@ -71,7 +93,8 @@ const get_random_tag_type = () => {
 }
 .statistic {
   color: #333;
-  padding: 20px 0px;
+  padding: 10px 0px;
   font-size: 16px;
+  margin-top: auto;
 }
 </style>

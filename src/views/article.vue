@@ -1,25 +1,30 @@
 <template>
-  <el-container>
-    <el-header id="header" class="header">
-      <Header :header="header"></Header>
-    </el-header>
-    <el-container class="main">
-      <el-main>
-        <Copyright></Copyright>
-        <ArticleComp :content="content"></ArticleComp>
-      </el-main> 
-      <el-aside class="aside">
-        <div id="aside-container" class="aside-container">
-          <TocComp class="aside-comp"></TocComp>
-          <Music class="aside-comp"></Music>
-        </div>
-      </el-aside>
+    <el-container>
+        <el-header id="header" class="header">
+            <Header :header="header"></Header>
+        </el-header>
+
+        <el-main class="main">
+            <el-row>
+                <el-col :span="16" :offset="2" class="content">
+                    <Copyright></Copyright>
+                    <ArticleComp :content="content"></ArticleComp>
+                </el-col>
+
+                <el-col :span="5" id="aside-container" class="aside-container">
+                    <TocComp class="aside-comp"></TocComp>
+                    <Music class="aside-comp"></Music>
+                </el-col>
+            </el-row>
+        </el-main> 
+
+        <el-footer id="footer" class="footer">
+            <Footer></Footer>
+        </el-footer> 
+
     </el-container>
-    <el-footer id="footer" class="footer">
-      <Footer></Footer>
-    </el-footer> 
+
     <Tool></Tool>
-  </el-container>
 </template>
 
 <script setup lang="ts">
@@ -76,48 +81,33 @@ window.addEventListener('scroll', (ev) =>{
   let header = document.querySelector('#header');
   let temp = document.querySelector('#aside-container') as HTMLDivElement;
   if(window.scrollY < header.clientHeight) {
-    temp.classList.remove('aside-fix');
+    temp.style.position = "relative";
+    temp.style.left = "0";
     return;
   }
+  temp.style.position = "fixed";
+  temp.style.left = document.body.clientWidth * 0.75 - 10 + "px";
   let footer = document.querySelector('#footer');
   let diff = footer.clientHeight + window.scrollY +
       document.body.clientHeight - document.body.scrollHeight;
   diff = Math.max(diff, 0);
   temp.style.height = (document.body.clientHeight - diff) + "px";
-  temp.classList.add('aside-fix');
 });
+
 </script>
 
 <style scoped>
-.aside {
-  width: 330px;
-}
-.aside-fix {
-  position: fixed;
-  top: 0px;
-  width: 319px;
-}
-.aside-container::-webkit-scrollbar { width: 0 !important }
-.aside-container {
-  border-left: 1px solid #ddd;
-  overflow: auto;
-  padding-left: 10px;
-}
-.aside-comp {
-    margin-top: 25px;
-}
-.main {
-  padding: 20px 4% 0px 6%;
-  min-height: 80vmin;
-  overflow: auto;
-}
 .header {
   height: 61.8vh;
-  padding-left: 12%;
   padding-top: 26vh;
   background: url("../assets/image/article.jpg") no-repeat top;
   background-size: 100vw;
 }
+
+.main {
+    min-height: 80vmin;
+}
+
 .footer {
   z-index: 998;
   height: 100px;
@@ -125,7 +115,19 @@ window.addEventListener('scroll', (ev) =>{
   background-color: #ccc;
   text-align: center;
 }
-p, ul, li, ol, a {
-  font-size: 16px;
+
+.aside-container::-webkit-scrollbar { width: 0 !important }
+.aside-container {
+  padding-left: 10px;
+  overflow: auto;
+  top: 0;
+}
+
+.aside-comp {
+    margin-top: 25px;
+}
+
+.content {
+    border-right: 1px solid #ddd;
 }
 </style>

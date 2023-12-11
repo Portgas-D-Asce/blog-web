@@ -10,6 +10,7 @@
       <Footer></Footer>
     </el-footer>
   </el-container>
+  <Tool></Tool>
 </template>
 
 <script setup lang="ts">
@@ -21,6 +22,7 @@ import Footer from "../components/footer.vue"
 import ArticlesComp from "../components/articles.vue"
 
 import { Abstract }from "../entity/Article";
+import Tool from '../components/tool.vue'
 import { get } from "../api"
 import Base from "../entity/Base"
 
@@ -44,13 +46,10 @@ get(route.fullPath).then((res) => {
 </script>
 <style scoped>
 .main {
-  padding: 20px 12% 15px 12%;
   min-height: 80vmin;
-  overflow: auto;
 }
 .header {
   height: 61.8vh;
-  padding-left: 12%;
   padding-top: 26vh;
   background-size: cover;
   background: url("../assets/image/articles.jpg") no-repeat right top;

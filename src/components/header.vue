@@ -1,8 +1,16 @@
 <template>
-  <div class="title"> {{ header.name }} </div>
-  <div class="introduce">
-    {{ header.description ? header.description : "这货还没有介绍！"}}
-  </div>
+    <el-row>
+        <el-col :span="3"></el-col>
+        <el-col :span="18"><div class="title"> {{ header.name }} </div></el-col>
+        <el-col :span="3"></el-col>
+    </el-row>
+    <el-row>
+        <el-col :span="3"></el-col>
+        <el-col :span="18" class="introduce"> {{ header.description}}</el-col>
+        <el-col :span="3"></el-col>
+  </el-row>
+  
+  
 </template>
 <script setup lang="ts">
 import Base from '../entity/Base';
