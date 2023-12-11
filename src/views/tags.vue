@@ -1,13 +1,13 @@
 <template>
-	<div id="tags" class="tags"></div>
+	<div id="blog-tags" class="wh100"></div>
 </template>
+
  
 <script setup lang="ts">
 import { onMounted } from 'vue';
 import * as echarts from 'echarts';
 import 'echarts-wordcloud';
 import { useRoute, useRouter } from 'vue-router';
-
 
 import { get } from '../api'
 
@@ -62,7 +62,7 @@ let option : EChartsOption = {
 };
 
 onMounted(() => {
-    let chartDom = document.getElementById('tags')!;
+    let chartDom = document.getElementById('blog-tags')!;
     let myChart = echarts.init(chartDom);
 
     myChart.on('click', (params) => {
@@ -77,10 +77,3 @@ onMounted(() => {
     });
 });
 </script>
-<style scoped>
-.tags {
-  width: 100vw;
-  height: 100vh;
-}
-</style>
-

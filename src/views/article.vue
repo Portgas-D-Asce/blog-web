@@ -1,10 +1,10 @@
 <template>
     <el-container>
-        <el-header id="header" class="header">
+        <el-header id="blog-header" class="blog-header color-white">
             <Header :header="header"></Header>
         </el-header>
 
-        <el-main class="main">
+        <el-main id="blog-main">
             <el-row>
                 <el-col :span="16" :offset="2" class="content">
                     <Copyright></Copyright>
@@ -16,9 +16,17 @@
                     <Music class="aside-comp"></Music>
                 </el-col>
             </el-row>
+
+            <!--todo
+                <el-row><el-col :span="21" :offset="2">__EOF__/pre and next</el-col></el-row>
+            -->
+
+            <!--todo
+                <el-row ><el-col :span="21" :offset="2">comment module</el-col></el-row>
+            -->
         </el-main> 
 
-        <el-footer id="footer" class="footer">
+        <el-footer id="blog-footer">
             <Footer></Footer>
         </el-footer> 
 
@@ -26,6 +34,7 @@
 
     <Tool></Tool>
 </template>
+
 
 <script setup lang="ts">
 import { ref } from "vue"
@@ -52,10 +61,10 @@ import { get } from "../api"
 const route = useRoute();
 
 let md = new MarkdownIt({
-  breaks: true,
-  html: true,
-  linkify: true,
-  typographer: true
+    breaks: true,
+    html: true,
+    linkify: true,
+    typographer: true
 });
 HighLight(md, {});
 Emoji(md, {});
@@ -66,61 +75,50 @@ let header = ref(new Base());
 let content = ref("");
 
 get(route.path).then((res) => {
-  header.value.id = res.data.id;
-  header.value.set_name(res.data.name)
-  header.value.set_description(res.data.description)
-  content.value = md.render(Base64.decode(res.data.content));
+    header.value.id = res.data.id;
+    header.value.set_name(res.data.name)
+    header.value.set_description(res.data.description)
+    content.value = md.render(Base64.decode(res.data.content));
 });
 
 Toc(md, { listType: 'ol', callback: (html, ast) => {
-  let toc = document.querySelector('#toc');
-  toc.innerHTML = html;
+    let toc = document.querySelector('#toc');
+    toc.innerHTML = html;
 }});
 
 window.addEventListener('scroll', (ev) =>{
-  let header = document.querySelector('#header');
-  let temp = document.querySelector('#aside-container') as HTMLDivElement;
-  if(window.scrollY < header.clientHeight) {
-    temp.style.position = "relative";
-    temp.style.left = "0";
-    return;
-  }
-  temp.style.position = "fixed";
-  temp.style.left = document.body.clientWidth * 0.75 - 10 + "px";
-  let footer = document.querySelector('#footer');
-  let diff = footer.clientHeight + window.scrollY +
-      document.body.clientHeight - document.body.scrollHeight;
-  diff = Math.max(diff, 0);
-  temp.style.height = (document.body.clientHeight - diff) + "px";
+    let header = document.querySelector('#blog-header');
+    let temp = document.querySelector('#aside-container') as HTMLDivElement;
+    if(window.scrollY < header.clientHeight) {
+        temp.style.position = "relative";
+        temp.style.left = "0";
+        return;
+    }
+    temp.style.position = "fixed";
+    temp.style.left = document.body.clientWidth * 0.75 - 10 + "px";
+    let footer = document.querySelector('#blog-footer');
+    let diff = footer.clientHeight + window.scrollY +
+        document.body.clientHeight - document.body.scrollHeight;
+    diff = Math.max(diff, 0);
+    temp.style.height = (document.body.clientHeight - diff) + "px";
 });
 
 </script>
 
+
 <style scoped>
-.header {
-  height: 61.8vh;
-  padding-top: 26vh;
-  background: url("../assets/image/article.jpg") no-repeat top;
-  background-size: 100vw;
+.blog-header {
+    background: url("../assets/image/article.jpg") no-repeat top;
 }
 
-.main {
-    min-height: 80vmin;
+.aside-container::-webkit-scrollbar {
+    width: 0 !important
 }
 
-.footer {
-  z-index: 998;
-  height: 100px;
-  padding: 15px 0px 5px 0px;
-  background-color: #ccc;
-  text-align: center;
-}
-
-.aside-container::-webkit-scrollbar { width: 0 !important }
 .aside-container {
-  padding-left: 10px;
-  overflow: auto;
-  top: 0;
+    padding-left: 10px;
+    overflow: auto;
+    top: 0;
 }
 
 .aside-comp {

@@ -10,7 +10,7 @@
                 </el-col>
                 
                 <el-col :span="14" class="right">
-                    <el-row class="title">
+                    <el-row class="title fontsz28">
                         <el-col :span="24"> 
                             <router-link :to="{ path: '/articles/' + article.id }">
                                 {{ article.name }}
@@ -32,7 +32,7 @@
                     </el-row>
 
                     <el-row class="statistic">
-                        <el-col :span="12"> {{ article.date }} </el-col>
+                        <el-col :span="12"> {{ article.date.substring(0, 19).replace('T', '\t') }} </el-col>
                         <el-col :span="12" style="text-align: right;">
                             阅读 ({{ article.read }}) | 
                             拉胯 ({{ article.downvoted }}) | 
@@ -45,56 +45,54 @@
     </el-row>
 </template>
 
+
 <script setup lang="ts">
 import { Abstract } from '../entity/Article';
 
 type Props = {
-  articles: Array<Abstract>
+    articles: Array<Abstract>
 }
 
 defineProps<Props>();
 
 const get_random_tag_type = () => {
-  const tag_type_list:Array<String> = ["primary", "success", "warning", "danger"];
-  const idx = Math.floor(Math.random() * 1000) % tag_type_list.length;
-  return tag_type_list[idx];
+    const tag_type_list:Array<String> = ["primary", "success", "warning", "danger"];
+    const idx = Math.floor(Math.random() * 1000) % tag_type_list.length;
+    return tag_type_list[idx];
 };
 </script>
 
+
 <style scoped>
 .abstract {
-  background-color: white;
-  box-shadow: 1px 1px 10px rgba(0,0,0,.2);
-  border-bottom: 1px solid #eee;
-  border-radius: 5px;
-  margin-bottom: 30px;
-  opacity:0.9;
-  background-size: 50%;
+    box-shadow: 1px 1px 10px rgba(0,0,0,.2);
+    border-bottom: 1px solid #eee;
+    border-radius: 5px;
+    margin-bottom: 30px;
+    opacity:0.9;
+    background-size: 50%;
 }
+
 .right {
-  padding: 8px 15px !important;
-  display: flex;
-  flex-direction: column;
+    padding: 8px 15px !important;
+    display: flex;
+    flex-direction: column;
 }
-.title {
-  font-size: 28px;
-}
+
 .tags {
-  padding-top: 20px;
+    padding-top: 20px;
 }
 .tag {
-  margin-right: 9px;
+    margin-right: 9px;
 }
+
 .digest {
-  color: #666;
-  font-size: 16px;
-  padding: 20px 0px;
-  clear: left;
+    padding: 20px 0px;
+    clear: left;
 }
+
 .statistic {
-  color: #333;
-  padding: 10px 0px;
-  font-size: 16px;
-  margin-top: auto;
+    padding: 10px 0px;
+    margin-top: auto;
 }
 </style>

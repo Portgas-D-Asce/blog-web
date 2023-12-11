@@ -1,22 +1,24 @@
 <template>
-  <a class="iconfont icon-github" href="https://github.com/Portgas-D-Asce"></a>
-  <a class="iconfont icon-codeforces" href="https://codeforces.com/profile/Portgas-D-Ace"></a>
-  <div class="copyright">
-     Copyright &copy; {{ date.getFullYear() }} Portgas·D·Asce
-  </div>
+    <a class="iconfont icon-github" href="https://github.com/Portgas-D-Asce"></a>
+    <a class="iconfont icon-codeforces" href="https://codeforces.com/profile/Portgas-D-Ace"></a>
+    <div class="copyright fontsz24">
+        Copyright &copy; {{ new Date().getFullYear() }} Portgas·D·Asce
+    </div>
 </template>
+
+
 <script setup lang="ts">
 import '../assets/fonts/iconfont.css'
-
-const date = new Date();
 </script>
+
+
 <style scoped>
 .iconfont {
-  margin-left: 10px;
-  margin-right: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
 }
+
 .copyright {
-  font-size: 24px;
-  margin-top: 15px;
+    margin-top: 15px;
 }
 </style>
