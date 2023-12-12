@@ -1,5 +1,5 @@
 <template>
-    <el-row>
+    <el-row class="blog-abstracts">
         <el-col :span="18" :offset="3">
             <el-row v-for="article in articles" class="abstract">
                 <!--
@@ -27,7 +27,7 @@
                         </el-col>
                     </el-row>
         
-                    <el-row class="digest">
+                    <el-row>
                         <el-col :span="24"> {{ article.description }} </el-col>
                     </el-row>
 
@@ -64,6 +64,11 @@ const get_random_tag_type = () => {
 
 
 <style scoped>
+.blog-abstracts {
+    min-height: 80vmin;
+    margin-top: 25px;
+}
+
 .abstract {
     box-shadow: 1px 1px 10px rgba(0,0,0,.2);
     border-bottom: 1px solid #eee;
@@ -80,15 +85,10 @@ const get_random_tag_type = () => {
 }
 
 .tags {
-    padding-top: 20px;
+    padding: 15px 0;
 }
 .tag {
     margin-right: 9px;
-}
-
-.digest {
-    padding: 20px 0px;
-    clear: left;
 }
 
 .statistic {

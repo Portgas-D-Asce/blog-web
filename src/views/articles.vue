@@ -3,9 +3,9 @@
         <el-header id="blog-header" class="blog-header color-white">
             <Header :header="header"></Header>
         </el-header>
-        <el-main id="blog-main">
-            <ArticlesComp :articles="abstracts"></ArticlesComp>
-        </el-main>
+
+        <ArticlesComp :articles="abstracts"></ArticlesComp>
+
         <el-footer id="blog-footer">
             <Footer></Footer>
         </el-footer>

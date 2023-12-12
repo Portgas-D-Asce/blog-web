@@ -48,10 +48,6 @@ a:hover {
     font-size: 13px;
 }
 
-#blog-main {
-    min-height: 80vmin;
-}
-
 #blog-header {
     height: 61.8vh;
     padding-top: 26vh;
