@@ -66,7 +66,7 @@ onMounted(() => {
     });
 
     myChart.showLoading();
-    get(route.path + "/0", {recursion: "true"}).then((res) => {
+    get(route.path + "/0", {recursively: "true"}).then((res) => {
         myChart.hideLoading();
         option.series[0].data = [res.data];
         myChart.setOption(option);

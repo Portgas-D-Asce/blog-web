@@ -38,11 +38,11 @@ if(route.query.category_id != undefined) {
 } else {
     path = "/tags/" + route.query.tag_id;
 }
-get(path, {"recursion": "false"}).then((res) => {
+get(path).then((res) => {
     header.value = res.data;
 });
 
-get(route.fullPath).then((res) => {
+get(route.fullPath, {"recursively": "true"}).then((res) => {
     abstracts.value = res.data;
 });
 </script>
