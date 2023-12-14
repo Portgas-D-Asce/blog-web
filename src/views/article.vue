@@ -11,7 +11,7 @@
             - so remove it
         -->
         <el-row class="blog-article">
-            <el-col :span="16" :offset="2" class="content">
+            <el-col :span="15" :offset="3" class="content">
                 <Copyright></Copyright>
                 <ArticleComp :content="content"></ArticleComp>
             </el-col>
@@ -27,10 +27,6 @@
         </el-row>
 
         <Eof></Eof>
-
-        <!--todo
-            <el-row><el-col :span="21" :offset="2">__EOF__/pre and next</el-col></el-row>
-        -->
 
         <!--todo
             <el-row ><el-col :span="21" :offset="2" style="height: 1000px;">comment module</el-col></el-row>

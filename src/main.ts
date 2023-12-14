@@ -4,4 +4,8 @@ import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
 import router from './router'
 
-createApp(App).use(router).use(ElementPlus).mount('#app')
+
+const blog = createApp(App);
+blog.use(router);
+blog.use(ElementPlus);
+blog.mount('#app')
