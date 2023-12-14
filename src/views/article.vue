@@ -11,7 +11,7 @@
             - so remove it
         -->
         <el-row class="blog-article">
-            <el-col :span="15" :offset="3" class="content">
+            <el-col :span="16" :offset="2" class="content">
                 <Copyright></Copyright>
                 <ArticleComp :content="content"></ArticleComp>
             </el-col>
@@ -26,11 +26,18 @@
             </el-col>
         </el-row>
 
-        <Eof></Eof>
+        <el-row class="eof fontsz20">
+            <el-col :span="21" :offset="2">
+                <Eof></Eof>
+            </el-col>
+        </el-row>
+        
+        <el-row>
+            <el-col :span="20" :offset="2">
+                <Comment></Comment>
+            </el-col>
+        </el-row>
 
-        <!--todo
-            <el-row ><el-col :span="21" :offset="2" style="height: 1000px;">comment module</el-col></el-row>
-        -->
         <el-footer id="blog-footer">
             <Footer></Footer>
         </el-footer> 
@@ -59,6 +66,7 @@ import TocComp from '../components/toc.vue'
 import Eof from '../components/eof.vue'
 import Tool from '../components/tool.vue'
 import Footer from "../components/footer.vue"
+import Comment from "../components/Comment.vue"
 
 import Base from "../entity/Base"
 import { get } from "../api"
@@ -84,12 +92,14 @@ get(route.path, {'with_content': 'true'}).then((res) => {
     header.value.set_name(res.data.name)
     header.value.set_description(res.data.description)
     content.value = md.render(Base64.decode(res.data.content));
+    window.document.title = header.value.name;
 });
 
 Toc(md, { listType: 'ol', callback: (html, ast) => {
     let toc = document.querySelector('#toc');
     toc.innerHTML = html;
 }});
+
 </script>
 
 
@@ -119,5 +129,9 @@ Toc(md, { listType: 'ol', callback: (html, ast) => {
 
 .content {
     border-right: 1px solid #ddd;
+}
+.eof{
+    padding: 15px 0;
+    text-align: center;
 }
 </style>
