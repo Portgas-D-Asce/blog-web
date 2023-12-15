@@ -19,8 +19,8 @@
             <el-col :span="5" id="aside-container" class="aside-container">
                 <el-affix target=".aside-container">
                     <div class="aside-content">
-                        <Music class="aside-comp"></Music>
                         <TocComp class="aside-comp"></TocComp>
+                        <Music class="aside-comp"></Music>
                     </div>
                 </el-affix>
             </el-col>
