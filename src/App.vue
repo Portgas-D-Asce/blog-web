@@ -22,7 +22,6 @@ html, body {
     height: 100%;
     padding: 0;
     margin: 0;
-    scroll-behavior: smooth;
 }
 
 img {
@@ -56,9 +55,9 @@ a:hover {
 
 #blog-footer {
     z-index: 998;
-    height: 100px;
-    padding: 15px 0px 5px 0px;
-    background-color: #ccc;
+    height: 150px;
+    padding: 42px 0px 5px 0px;
+    background-color: #eee;
     text-align: center;
 }
 

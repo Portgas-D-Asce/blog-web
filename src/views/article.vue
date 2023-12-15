@@ -26,11 +26,11 @@
             </el-col>
         </el-row>
 
-        <el-row class="eof fontsz20">
+        <!--<el-row class="eof fontsz20">
             <el-col :span="21" :offset="2">
                 <Eof></Eof>
             </el-col>
-        </el-row>
+        </el-row>-->
         
         <el-row>
             <el-col :span="20" :offset="2">
@@ -40,7 +40,7 @@
 
         <el-footer id="blog-footer">
             <Footer></Footer>
-        </el-footer> 
+        </el-footer>
     </el-container>
 
     <Tool></Tool>
