@@ -92,7 +92,29 @@ get(route.path, {'with_content': 'true'}).then((res) => {
     header.value.set_name(res.data.name)
     header.value.set_description(res.data.description)
     content.value = md.render(Base64.decode(res.data.content));
+    
+    //update title
     window.document.title = header.value.name;
+
+    //init comment
+    const comment = document.getElementById("giscus");
+    const s = document.createElement('script');
+    s.type = 'text/javascript';
+    s.src = 'https://giscus.app/client.js';
+    s.setAttribute("data-repo", "Portgas-D-Asce/blog-web");
+    s.setAttribute("data-repo-id", "R_kgDOJCta4g");
+    s.setAttribute("data-category-id", "DIC_kwDOJCta4s4CbvLE");
+    s.setAttribute("data-mapping", "title");
+    s.setAttribute("data-strict", "1");
+    s.setAttribute("data-reactions-enabled", "1");
+    s.setAttribute("data-emit-metadata", "0");
+    s.setAttribute("data-input-position", "top");
+    s.setAttribute("data-theme", "light");
+    s.setAttribute("data-lang", "zh-CN");
+    //s.setAttribute("data-loading", "lazy");
+    s.setAttribute("crossorigin", "anonymous");
+    //s.async = true;
+    comment.appendChild(s);
 });
 
 Toc(md, { listType: 'ol', callback: (html, ast) => {
@@ -131,7 +153,7 @@ Toc(md, { listType: 'ol', callback: (html, ast) => {
     border-right: 1px solid #ddd;
 }
 .eof{
-    padding: 15px 0;
+    padding: 40px 0 15px 0;
     text-align: center;
 }
 </style>
