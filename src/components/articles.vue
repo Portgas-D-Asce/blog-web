@@ -2,11 +2,8 @@
     <el-row class="blog-abstracts">
         <el-col :span="18" :offset="3">
             <el-row v-for="article in articles" class="abstract">
-                <!--
-                  <img class="top" :src="`/blog/api/v1/images?name=${article.id}-0.jpg&ratio=2`"/>
-                -->
                 <el-col :span="10">
-                    <img :src="`https://localhost:8080/blog/api/v1/images?name=${article.id}-0.jpg&ratio=2`"/>
+                    <img :src="`/blog/api/v1/images?name=${article.id}-0.jpg&ratio=2`"/>
                 </el-col>
                 
                 <el-col :span="14" class="right">
