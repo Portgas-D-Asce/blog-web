@@ -3,7 +3,7 @@
         <el-col :span="18" :offset="3">
             <el-row v-for="article in articles" class="abstract">
                 <el-col :span="10">
-                    <img :src="`https://localhost:8080/blog/api/v1/images?name=${article.id}-0.jpg&ratio=2`"/>
+                    <img :src="`http://123.56.244.110:8080/blog/api/v1/images?name=${article.id}-0.jpg&ratio=2`"/>
                 </el-col>
                 
                 <el-col :span="14" class="right">
