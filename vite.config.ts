@@ -11,5 +11,5 @@ export default defineConfig({
       threshold: 10240
     })
   ],
-  base: "/blog/"
+  base: "/"
 })
