@@ -62,11 +62,11 @@ onMounted(() => {
     let chartDom = document.getElementById('blog-categories')!;
     let myChart = echarts.init(chartDom);
     myChart.on('click', (params) => {
-        router.push({path: '/articles', query: {category_id: params.data["id"]}});
+        router.push({path: '/articles', query: {category: params.data["name"]}});
     });
 
     myChart.showLoading();
-    get(route.path + "/9", {recursively: "true"}).then((res) => {
+    get(route.path + "/Home", {recursively: "true"}).then((res) => {
         myChart.hideLoading();
         option.series[0].data = [res.data];
         myChart.setOption(option);

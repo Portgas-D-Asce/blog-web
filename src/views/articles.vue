@@ -32,16 +32,18 @@ const route = useRoute();
 let header = ref(new Base());
 let abstracts = ref(new Array<Abstract>());
 
+// 这是在请求 header 部分数据呢
 let path = undefined
-if(route.query.category_id != undefined) {
-    path = "/categories/" + route.query.category_id;
+if(route.query.category != undefined) {
+    path = "/categories/" + route.query.category;
 } else {
-    path = "/tags/" + route.query.tag_id;
+    path = "/tags/" + route.query.tag;
 }
 get(path).then((res) => {
     header.value = res.data;
 });
 
+// 请求摘要数据
 get(route.fullPath, {"recursively": "true"}).then((res) => {
     abstracts.value = res.data;
 });

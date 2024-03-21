@@ -87,7 +87,7 @@ Anchor(md, { } );
 let header = ref(new Base());
 let content = ref("");
 
-get(route.path, {'with_content': 'true'}).then((res) => {
+get(route.path, {'withContent': 'true'}).then((res) => {
     header.value.id = res.data.id;
     header.value.set_name(res.data.name)
     header.value.set_description(res.data.description)

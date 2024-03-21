@@ -4,12 +4,15 @@
             <el-row v-for="article in articles" class="abstract">
                 <el-col :span="10">
                     <img :src="`https://123.56.244.110:8080/blog/api/v1/images?name=${article.id}-0.jpg&ratio=2`"/>
+                    <!--  
+                    <img :src="`https://localhost:8080/blog/api/v1/images?name=${article.id}-0.jpg&ratio=2`"/>
+                    -->
                 </el-col>
                 
                 <el-col :span="14" class="right">
                     <el-row class="title fontsz28">
                         <el-col :span="24"> 
-                            <router-link :to="{ path: '/articles/' + article.id }">
+                            <router-link :to="{ path: '/articles/' + article.name }">
                                 {{ article.name }}
                             </router-link>
                         </el-col>
@@ -18,7 +21,7 @@
                     <el-row class="tags">
                         <el-col :span="24"> 
                             <router-link v-for="tag in article.tags" 
-                                    :to="{ path: '/articles', query: {'tag_id': tag.id}}" class="tag">
+                                    :to="{ path: '/articles', query: {'tag': tag.name}}" class="tag">
                                 <el-tag class="ml-2" :type="get_random_tag_type()"> {{ tag.name }} </el-tag>
                             </router-link>
                         </el-col>
