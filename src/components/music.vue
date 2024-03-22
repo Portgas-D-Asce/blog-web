@@ -28,7 +28,9 @@ onBeforeMount(() => {
 onMounted(() => {
     const s = document.createElement('script');
     s.type = 'text/javascript';
-    s.src = 'https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js';
+    //s.src = 'https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js';
+    s.src = '/Meting.min.js';
+    //window.meting_api = 'https://api.injahow.cn/meting/?server=:server&type=:type&id=:id&auth=:auth&r=:r';
     document.body.appendChild(s);
 });
 </script>
