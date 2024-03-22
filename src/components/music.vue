@@ -10,27 +10,5 @@
     </div>
 </template>
 
-
 <script setup lang="ts">
-import { onBeforeMount, onMounted } from 'vue';
-
-onBeforeMount(() => {
-    const t = document.createElement('link');
-    t.rel = 'stylesheet';
-    t.href = 'https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css'
-    document.body.appendChild(t);
-    const s = document.createElement('script');
-    s.type = 'text/javascript';
-    s.src = 'https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js';
-    document.body.appendChild(s);
-});
-
-onMounted(() => {
-    const s = document.createElement('script');
-    s.type = 'text/javascript';
-    //s.src = 'https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js';
-    s.src = '/Meting.min.js';
-    //window.meting_api = 'https://api.injahow.cn/meting/?server=:server&type=:type&id=:id&auth=:auth&r=:r';
-    document.body.appendChild(s);
-});
 </script>

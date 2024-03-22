@@ -4,12 +4,24 @@
     <meta charset="UTF-8" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.5.1/build/styles/github.min.css"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css"/>
-    <link rel="shortcut icon" type="image/svg+xml" href="@/assets/image/favicon.ico" />
+    <link rel="shortcut icon" type="image/svg+xml" href="/src/assets/image/favicon.ico" />
     <title>XDevil's blog</title>
   </head>
   <body>
     <div id="app"></div>
     <script type="module" src="/src/main.ts"></script>
-   
+
+    <!--
+        <link rel="stylesheet" href='https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css' />
+        <script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
+        老版本包不能用了，要用新包
+        <script src="https://unpkg.com/@xizeyoupan/meting@latest/dist/Meting.min.js"></script>
+    -->
+    <link rel="stylesheet" href="/src/assets/APlayer.min.css" />
+    <script type="module" src="/src/assets/APlayer.min.js"></script>
+    <script>
+        var meting_api = 'https://ddd.xdevil.top/api?server=:server&type=:type&id=:id&auth=:auth&r=:r';
+    </script>
+    <script type="module" src="/src/assets/Meting.min.js"></script>
   </body>
 </html>
