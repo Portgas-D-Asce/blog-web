@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h2>Toc &#x00A7;</h2>
+        <h2>Toc &#x00A7;&#x1F4D3;&#x1F4D3;</h2>
         <div id="toc"></div>
     </div>
 </template>
