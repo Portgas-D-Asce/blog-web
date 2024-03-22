@@ -111,7 +111,7 @@ get(route.path, {'withContent': 'true'}).then((res) => {
     s.setAttribute("data-input-position", "top");
     s.setAttribute("data-theme", "light");
     s.setAttribute("data-lang", "zh-CN");
-    //s.setAttribute("data-loading", "lazy");
+    s.setAttribute("data-loading", "lazy");
     s.setAttribute("crossorigin", "anonymous");
     //s.async = true;
     comment.appendChild(s);
