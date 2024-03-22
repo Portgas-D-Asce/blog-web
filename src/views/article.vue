@@ -11,7 +11,7 @@
             - so remove it
         -->
         <el-row class="blog-article">
-            <el-col :span="16" :offset="2" class="content">
+            <el-col :span="14" :offset="3">
                 <Copyright></Copyright>
                 <ArticleComp :content="content"></ArticleComp>
             </el-col>
@@ -25,15 +25,9 @@
                 </el-affix>
             </el-col>
         </el-row>
-
-        <!--<el-row class="eof fontsz20">
-            <el-col :span="21" :offset="2">
-                <Eof></Eof>
-            </el-col>
-        </el-row>-->
         
         <el-row>
-            <el-col :span="20" :offset="2">
+            <el-col :span="19" :offset="3">
                 <Comment></Comment>
             </el-col>
         </el-row>
@@ -63,7 +57,6 @@ import Copyright from "../components/copyright.vue"
 import ArticleComp from "../components/article.vue"
 import Music from '../components/music.vue'
 import TocComp from '../components/toc.vue'
-import Eof from '../components/eof.vue'
 import Tool from '../components/tool.vue'
 import Footer from "../components/footer.vue"
 import Comment from "../components/Comment.vue"
@@ -132,7 +125,7 @@ Toc(md, { listType: 'ol', callback: (html, ast) => {
 
 .blog-article {
     min-height: 80vmin;
-    margin-top: 25px;
+    margin-top: 35px;
 }
 
 .aside-content::-webkit-scrollbar {
@@ -143,17 +136,5 @@ Toc(md, { listType: 'ol', callback: (html, ast) => {
     padding-left: 10px;
     max-height: 99vh;
     overflow: auto;
-}
-
-.aside-comp {
-    margin-top: 25px;
-}
-
-.content {
-    border-right: 1px solid #ddd;
-}
-.eof{
-    padding: 40px 0 15px 0;
-    text-align: center;
 }
 </style>
