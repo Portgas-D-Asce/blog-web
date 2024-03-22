@@ -2,7 +2,7 @@
     <a class="iconfont icon-github" href="https://github.com/Portgas-D-Asce"></a>
     <a class="iconfont icon-codeforces" href="https://codeforces.com/profile/Portgas-D-Ace"></a>
     <div class="copyright fontsz24">
-        Copyright &copy; {{ new Date().getFullYear() }} Portgas·D·Asce
+        Copyright &copy; {{ new Date().getFullYear() }} Devil
     </div>
 </template>
 
