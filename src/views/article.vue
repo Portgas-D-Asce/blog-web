@@ -10,9 +10,14 @@
             - what's worse, it conflicts with good boy el-affix
             - so remove it
         -->
+
+        <el-row>
+            <el-col :span="19" :offset="3">
+                <Copyright></Copyright>
+            </el-col>
+        </el-row>
         <el-row class="blog-article">
             <el-col :span="14" :offset="3">
-                <Copyright></Copyright>
                 <ArticleComp :content="content"></ArticleComp>
             </el-col>
 
@@ -125,7 +130,6 @@ Toc(md, { listType: 'ol', callback: (html, ast) => {
 
 .blog-article {
     min-height: 80vmin;
-    margin-top: 35px;
 }
 
 .aside-content::-webkit-scrollbar {

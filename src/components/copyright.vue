@@ -11,7 +11,8 @@
     border-left: 5px solid #87CEFA;
     background-color: #f7f7fc;
     padding: 15px 18px 3px;
-    margin-bottom: 35px;
+    margin-top: 25px;
+    margin-bottom: 10px;
 }
 
 .copyright div {

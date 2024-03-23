@@ -25,6 +25,9 @@ const router = createRouter({
     }, {
         path: '/:pathMatch+',
         component: () => import('../views/404.vue')
-    }]
+    }],
+    scrollBehavior() {
+        return { top:0 }
+    }
 });
 export default router

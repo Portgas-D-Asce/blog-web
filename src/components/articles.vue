@@ -11,8 +11,8 @@
                 
                 <el-col :span="14" class="right">
                     <el-row class="title fontsz28">
-                        <el-col :span="24"> 
-                            <router-link :to="{ path: '/articles/' + article.name }">
+                        <el-col :span="24">
+                            <router-link :to="{ path: '/articles/' + article.name}">
                                 {{ article.name }}
                             </router-link>
                         </el-col>
