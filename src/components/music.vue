@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div id="music">
         <h2>Music &#x1F3B6; &#x1F3B6;</h2>
         <!--
         <meting-js
@@ -31,6 +31,10 @@ defineProps<Props>()
 
 
 <style scoped>
+#music {
+    min-height: 400px;
+}
+
 h2 {
     border-bottom: 1px solid #CCC;
     padding-bottom: 8px;
