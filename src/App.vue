@@ -32,8 +32,6 @@ onMounted(() => {
             window.scrollTo({top: 0, behavior: 'smooth'});
         } else if(e.code === 'KeyV') {
             window.scrollTo({top: document.body.scrollHeight , behavior: 'smooth'});
-        }else {
-            console.log("who you are? where are you from? what's your dream?");
         }
     };
 
