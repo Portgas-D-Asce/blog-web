@@ -28,13 +28,10 @@
                         <el-affix target=".aside-container">
                             <div class="aside-content">
                                 <TocComp class="aside-comp"></TocComp>
-                                <Music class="aside-comp"></Music>
+                                <Music :meting="meting" class="aside-comp"></Music>
                             </div>
                         </el-affix>
                     </el-col>
-        
-                    
-        
                 </el-row>
                 
                 <el-row>
@@ -74,6 +71,7 @@ import Footer from "../components/footer.vue"
 import Comment from "../components/Comment.vue"
 
 import Base from "../entity/Base"
+import Meting from "../entity/Meting"
 import { get } from "../api"
 
 const route = useRoute();
@@ -91,6 +89,10 @@ Anchor(md, { } );
 
 let header = ref(new Base());
 let content = ref("");
+let meting = ref(new Meting());
+meting.value.set_server("tencent");
+meting.value.set_type("playlist");
+meting.value.set_id("7679023489");
 
 get(route.path, {'withContent': 'true'}).then((res) => {
     header.value.id = res.data.id;
