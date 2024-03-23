@@ -4,7 +4,8 @@
 
 
 <script setup lang="ts">
-import { useRoute } from 'vue-router';
+import { onMounted } from 'vue';
+import { useRoute, useRouter } from 'vue-router';
 
 const route = useRoute();
 const route_key = () => {
@@ -13,7 +14,32 @@ const route_key = () => {
     if(idx == -1) return path;
     return path.substring(0, idx);
 }
+
+const router = useRouter();
+onMounted(() => {
+    document.onkeyup = (e) => {
+        if(e.code === 'KeyH') {
+            router.push({path: "/"});
+        } else if(e.code === 'KeyC') {
+            router.push({path: "/categories"});
+        } else if(e.code === 'KeyT') {
+            router.push({path: "/tags"});
+        } else if(e.code === 'KeyP') {
+            router.back();
+        } else if(e.code === 'KeyN') {
+            router.forward();
+        } else if(e.code === 'KeyA') {
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        } else if(e.code === 'KeyV') {
+            window.scrollTo({top: document.body.scrollHeight , behavior: 'smooth'});
+        }else {
+            console.log("who you are? where are you from? what's your dream?");
+        }
+    };
+
+});
 </script>
+
 
 
 <style>

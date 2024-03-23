@@ -10,39 +10,47 @@
             - what's worse, it conflicts with good boy el-affix
             - so remove it
         -->
-
         <el-row>
-            <el-col :span="19" :offset="3">
-                <Copyright></Copyright>
-            </el-col>
-        </el-row>
-        <el-row class="blog-article">
-            <el-col :span="14" :offset="3">
-                <ArticleComp :content="content"></ArticleComp>
-            </el-col>
+            <el-col :xs="1" :sm="1" :md="1" :lg="2" :xl="3"></el-col>
+            <el-col :xs="22" :sm="22" :md="22" :lg="20" :xl="18">
+                <el-row>
+                    <el-col :span="24">
+                        <Copyright></Copyright>
+                    </el-col>
+                </el-row>
 
-            <el-col :span="5" id="aside-container" class="aside-container">
-                <el-affix target=".aside-container">
-                    <div class="aside-content">
-                        <TocComp class="aside-comp"></TocComp>
-                        <Music class="aside-comp"></Music>
-                    </div>
-                </el-affix>
-            </el-col>
-        </el-row>
+                <el-row class="blog-article">
+                    <el-col :xs="24" :sm="24" :md="16" :lg="18" :xl="18">
+                        <ArticleComp :content="content"></ArticleComp>
+                    </el-col>
         
-        <el-row>
-            <el-col :span="19" :offset="3">
-                <Comment></Comment>
+                    <el-col :xs="0" :sm="0" :md="8" :lg="6" :xl="6" id="aside-container" class="aside-container">
+                        <el-affix target=".aside-container">
+                            <div class="aside-content">
+                                <TocComp class="aside-comp"></TocComp>
+                                <Music class="aside-comp"></Music>
+                            </div>
+                        </el-affix>
+                    </el-col>
+        
+                    
+        
+                </el-row>
+                
+                <el-row>
+                    <el-col :span="24">
+                        <Comment></Comment>
+                    </el-col>
+                </el-row>
             </el-col>
+
+            <el-col :xs="1" :sm="1" :md="1" :lg="2" :xl="3"></el-col>
         </el-row>
 
         <el-footer id="blog-footer">
             <Footer></Footer>
         </el-footer>
     </el-container>
-
-    <Tool></Tool>
 </template>
 
 
@@ -62,7 +70,6 @@ import Copyright from "../components/copyright.vue"
 import ArticleComp from "../components/article.vue"
 import Music from '../components/music.vue'
 import TocComp from '../components/toc.vue'
-import Tool from '../components/tool.vue'
 import Footer from "../components/footer.vue"
 import Comment from "../components/Comment.vue"
 

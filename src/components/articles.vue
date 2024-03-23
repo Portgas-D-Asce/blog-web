@@ -1,6 +1,7 @@
 <template>
     <el-row class="blog-abstracts">
-        <el-col :span="18" :offset="3">
+        <el-col :xs="1" :sm="1" :md="2" :lg="3" :xl="3"></el-col>
+        <el-col :xs="22" :sm="22" :md="20" :lg="18" :xl="18">
             <el-row v-for="article in articles" class="abstract">
                 <el-col :span="10">
                     <img :src="`https://123.56.244.110:8080/blog/api/v1/images?name=${article.id}-0.jpg&ratio=2`"/>

@@ -10,8 +10,6 @@
             <Footer></Footer>
         </el-footer>
     </el-container>
-
-    <Tool></Tool>
 </template>
 
 
@@ -24,7 +22,6 @@ import Footer from "../components/footer.vue"
 import ArticlesComp from "../components/articles.vue"
 
 import { Abstract }from "../entity/Article";
-import Tool from '../components/tool.vue'
 import { get } from "../api"
 import Base from "../entity/Base"
 
