@@ -1,10 +1,8 @@
 <template>
-    <el-row>
-        <el-col :span="18" :offset="3"><div class="title fontsz36 font-bold"> {{ header.name }} </div></el-col>
-    </el-row>
-    <el-row>
-        <el-col :span="18" :offset="3" class="introduce fontsz24 font-bold"> {{ header.description}}</el-col>
-    </el-row>
+    <div class="header">
+        <div class="fontsz36 font-bold"> {{ header.name }} </div>
+        <div class="fontsz20 font-bold"> {{ header.description}}</div>
+    </div>
 </template>
 
 
@@ -17,3 +15,10 @@ type Props = {
 
 defineProps<Props>()
 </script>
+
+<style scoped>
+.header {
+    margin: 0 auto;
+    text-align: center;
+}
+</style>
