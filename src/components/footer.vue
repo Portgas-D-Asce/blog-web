@@ -2,8 +2,13 @@
     <a class="iconfont icon-github" href="https://github.com/Portgas-D-Asce"></a>
     <a class="iconfont icon-codeforces" href="https://codeforces.com/profile/Portgas-D-Ace"></a>
     <div class="copyright fontsz24">
-        Copyright &copy; {{ new Date().getFullYear() }} Devil
+        
     </div>
+    <div class="copyright fontsz24">
+        Copyright &copy; {{ new Date().getFullYear() }} Devil ｜ 
+        <a href="https://beian.miit.gov.cn">陕 ICP 备 2024031775</a>
+    </div>
+    
 </template>
 
 
