@@ -1,5 +1,8 @@
 <template>
     <router-view :key="route_key()"></router-view>
+    <div id="music">
+        <meting-js server="tencent" type="playlist" id="7679023489" order="random" volume="0.2"></meting-js>
+    </div>
 </template>
 
 
@@ -32,12 +35,14 @@ onMounted(() => {
             window.scrollTo({top: 0, behavior: 'smooth'});
         } else if(e.code === 'KeyV') {
             window.scrollTo({top: document.body.scrollHeight , behavior: 'smooth'});
+        } else if(e.code === 'KeyM') {
+            const music = document.querySelector(".aplayer-pic") as HTMLElement;
+            music.click();
         }
     };
 
 });
 </script>
-
 
 
 <style>
@@ -69,6 +74,10 @@ a:hover {
     tab-size: 4;
     background-color: rgb(250, 250, 250);
     font-size: 13px;
+}
+
+#music {
+    display: none;
 }
 
 #blog-header {

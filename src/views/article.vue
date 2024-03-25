@@ -11,8 +11,8 @@
             - so remove it
         -->
         <el-row>
-            <el-col :xs="1" :sm="1" :md="1" :lg="2" :xl="3"></el-col>
-            <el-col :xs="22" :sm="22" :md="22" :lg="20" :xl="18">
+            <el-col :xs="1" :sm="1" :md="1" :lg="3" :xl="3"></el-col>
+            <el-col :xs="22" :sm="22" :md="22" :lg="18" :xl="18">
                 <el-row>
                     <el-col :span="24">
                         <Copyright></Copyright>
@@ -20,18 +20,23 @@
                 </el-row>
 
                 <el-row class="blog-article">
+                    <el-col :span="24">
+                        <ArticleComp :content="content"></ArticleComp>
+                    </el-col>
+                    <!--
                     <el-col :xs="24" :sm="24" :md="16" :lg="18" :xl="18">
                         <ArticleComp :content="content"></ArticleComp>
                     </el-col>
-        
+
                     <el-col :xs="0" :sm="0" :md="8" :lg="6" :xl="6" id="aside-container" class="aside-container">
                         <el-affix target=".aside-container">
                             <div class="aside-content">
                                 <TocComp class="aside-comp"></TocComp>
-                                <Music :meting="meting" class="aside-comp"></Music>
+                                <Music class="aside-comp"></Music>
                             </div>
                         </el-affix>
                     </el-col>
+                    -->
                 </el-row>
                 
                 <el-row>
@@ -41,7 +46,7 @@
                 </el-row>
             </el-col>
 
-            <el-col :xs="1" :sm="1" :md="1" :lg="2" :xl="3"></el-col>
+            <el-col :xs="1" :sm="1" :md="1" :lg="3" :xl="3"></el-col>
         </el-row>
 
         <el-footer id="blog-footer">
@@ -60,18 +65,17 @@ import HighLight from 'markdown-it-highlightjs'
 import Emoji from 'markdown-it-emoji'
 import Katex from '@traptitech/markdown-it-katex'
 import Anchor from 'markdown-it-anchor'
-import Toc from 'markdown-it-toc-done-right'
+//import Toc from 'markdown-it-toc-done-right'
 
 import Header from "../components/header.vue"
 import Copyright from "../components/copyright.vue"
 import ArticleComp from "../components/article.vue"
-import Music from '../components/music.vue'
-import TocComp from '../components/toc.vue'
+//import Music from '../components/music.vue'
+//import TocComp from '../components/toc.vue'
 import Footer from "../components/footer.vue"
 import Comment from "../components/Comment.vue"
 
 import Base from "../entity/Base"
-import Meting from "../entity/Meting"
 import { get } from "../api"
 
 const route = useRoute();
@@ -85,14 +89,10 @@ let md = new MarkdownIt({
 HighLight(md, {});
 Emoji(md, {});
 Katex(md, {});
-Anchor(md, { } );
+Anchor(md, {} );
 
 let header = ref(new Base());
 let content = ref("");
-let meting = ref(new Meting());
-meting.value.set_server("tencent");
-meting.value.set_type("playlist");
-meting.value.set_id("7679023489");
 
 get(route.path, {'withContent': 'true'}).then((res) => {
     header.value.id = res.data.id;
@@ -124,10 +124,10 @@ get(route.path, {'withContent': 'true'}).then((res) => {
     comment.appendChild(s);
 });
 
-Toc(md, { listType: 'ol', callback: (html, ast) => {
-    let toc = document.querySelector('#toc');
-    toc.innerHTML = html;
-}});
+//Toc(md, { listType: 'ol', callback: (html, ast) => {
+//    let toc = document.querySelector('#toc');
+//    toc.innerHTML = html;
+//}});
 
 </script>
 
