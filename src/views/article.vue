@@ -11,8 +11,8 @@
             - so remove it
         -->
         <el-row>
-            <el-col :xs="1" :sm="1" :md="1" :lg="3" :xl="3"></el-col>
-            <el-col :xs="22" :sm="22" :md="22" :lg="18" :xl="18">
+            <el-col :xs="1" :sm="1" :md="2" :lg="4" :xl="5"></el-col>
+            <el-col :xs="22" :sm="22" :md="20" :lg="16" :xl="14">
                 <el-row>
                     <el-col :span="24">
                         <Copyright></Copyright>
@@ -32,7 +32,6 @@
                         <el-affix target=".aside-container">
                             <div class="aside-content">
                                 <TocComp class="aside-comp"></TocComp>
-                                <Music class="aside-comp"></Music>
                             </div>
                         </el-affix>
                     </el-col>
@@ -46,7 +45,7 @@
                 </el-row>
             </el-col>
 
-            <el-col :xs="1" :sm="1" :md="1" :lg="3" :xl="3"></el-col>
+            <el-col :xs="1" :sm="1" :md="2" :lg="4" :xl="5"></el-col>
         </el-row>
 
         <el-footer id="blog-footer">
@@ -70,7 +69,6 @@ import Anchor from 'markdown-it-anchor'
 import Header from "../components/header.vue"
 import Copyright from "../components/copyright.vue"
 import ArticleComp from "../components/article.vue"
-//import Music from '../components/music.vue'
 //import TocComp from '../components/toc.vue'
 import Footer from "../components/footer.vue"
 import Comment from "../components/Comment.vue"
