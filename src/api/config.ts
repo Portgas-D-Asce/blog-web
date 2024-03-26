@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const server = axios.create({
-    baseURL: 'https://123.56.244.110:8080/blog/api/v1',
+    baseURL: 'https://www.xdevil.top:8080/blog/api/v1',
     // baseURL: 'https://localhost:8080/blog/api/v1',
     headers: {
         'Content-Type': 'application/json;charset=UTF-8'
